@@ -3,7 +3,7 @@
 
 #include "pch.h"
 #include "framework.h"
-#include "Guten.h"
+#include "GutenExports.h"
 
 
 // This is an example of an exported variable
@@ -16,7 +16,7 @@ GUTEN_API int fnGuten(void)
 }
 
 // This is the constructor of a class that has been exported.
-CGuten::CGuten()
-{
-    return;
-}
+//CGuten::CGuten()
+//{
+//    return;
+//}

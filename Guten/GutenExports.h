@@ -11,11 +11,11 @@
 #endif
 
 // This class is exported from the dll
-class GUTEN_API CGuten {
-public:
-	CGuten(void);
-	// TODO: add your methods here.
-};
+//class GUTEN_API CGuten {
+//public:
+//	CGuten(void);
+//	// TODO: add your methods here.
+//};
 
 extern GUTEN_API int nGuten;
 
