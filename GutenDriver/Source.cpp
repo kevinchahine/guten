@@ -6,46 +6,48 @@ using namespace std;
 
 int main()
 {
-	cout << guten::color::red << "=============" << endl
-		<< guten::color::green << "=== Guten ===" << endl
-		<< guten::color::blue << "=============" << endl
-		<< endl;
-
-	cout << guten::color::red << 'C'
-		<< guten::color::lightred << 'o'
-		<< guten::color::yellow << 'l'
-		<< guten::color::brown << 'o'
-		<< guten::color::green << 'r'
-		<< ' '
-		<< guten::color::lightgreen << 'M'
-		<< guten::color::cyan << 'e'
-		<< ' '
-		<< guten::color::lightcyan << 'w'
-		<< guten::color::blue << 'i'
-		<< guten::color::lightblue << 't'
-		<< guten::color::magenta << 'h'
-		<< ' ';
-
-	guten::color::Color c;
-	c.setfg(guten::color::white);
-
-	c.setbg(guten::color::red);
-	cout << c << 'G';
-
-	c.setbg(guten::color::yellow);
-	cout << c << 'u';
-
-	c.setbg(guten::color::green);
-	cout << c << 't';
-
-	c.setbg(guten::color::cyan);
-	cout << c << 'e';
-
-	c.setbg(guten::color::blue);
-	cout << c << 'n';
-
-	cout << guten::color::white << "!!!" << endl;
-
+	// Change terminal's forground color, then print some text
+	//cout << guten::color::red << "=============" << endl	// print in red
+	//	<< guten::color::green << "=== Guten ===" << endl	// print in green
+	//	<< guten::color::blue << "=============" << endl	// print in blue
+	//	<< endl;
+	//
+	//cout << guten::color::red << 'C'			// Set foreground color to red
+	//	<< guten::color::lightred << 'o'		// Set foreground color to lightred
+	//	<< guten::color::yellow << 'l'			// Set foreground color to yellow
+	//	<< guten::color::brown << 'o'			// Set foreground color to brown
+	//	<< guten::color::green << 'r'			// Set foreground color to green
+	//	<< ' '
+	//	<< guten::color::lightgreen << 'M'		// Set foreground color to lightgreen
+	//	<< guten::color::cyan << 'e'			// Set foreground color to cyan
+	//	<< ' '
+	//	<< guten::color::lightcyan << 'w'		// Set foreground color to lightcyan
+	//	<< guten::color::blue << 'i'			// Set foreground color to blue
+	//	<< guten::color::lightblue << 't'		// Set foreground color to lightblue
+	//	<< guten::color::magenta << 'h'			// Set foreground color to magenta
+	//	<< ' ';
+	//
+	//// Create a Color object. When streamed, it will change the terminals color.
+	//guten::color::Color c;
+	//c.setfg(guten::color::white);				// Set objects foreground color to white
+	//
+	//c.setbg(guten::color::red);					// Set objects background color to red
+	//cout << c << 'G';							// Stream color and 'G'
+	//											 
+	//c.setbg(guten::color::yellow);				// Set objects background color to yellow
+	//cout << c << 'u';							// Stream color and 'u'
+	//											 
+	//c.setbg(guten::color::green);				// Set objects background color to green
+	//cout << c << 't';							// You get the idea
+	//											 
+	//c.setbg(guten::color::cyan);				// Set objects background color to cyan
+	//cout << c << 'e';							
+	//											 
+	//c.setbg(guten::color::blue);				// Set objects background color to blue
+	//cout << c << 'n';							 
+	//
+	//cout << guten::color::white << "!!!" << endl; // Set terminal color back to white on black
+	
 	//guten::color::printAllColors();
 
 	//guten::color::Color c = guten::color::red;
