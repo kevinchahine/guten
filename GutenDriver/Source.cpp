@@ -2,10 +2,7 @@
 #include <thread>
 #include <chrono>
 
-#include <Guten/Color.h>
-#include <Guten/iocolor.h>
-
-#include <Guten/ColoredChar.h>
+#include <Guten/guten.hpp>
 
 using namespace std;
 

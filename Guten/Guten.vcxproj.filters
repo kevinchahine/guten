@@ -71,6 +71,9 @@
     <ClInclude Include="DrawFunctions.h">
       <Filter>draw</Filter>
     </ClInclude>
+    <ClInclude Include="guten.hpp">
+      <Filter>Special Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

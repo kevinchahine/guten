@@ -2,7 +2,7 @@
 
 #include "GutenExports.h"
 
-#include "color.h"
+#include "Color.h"
 #include "iocolor.h"
 
 namespace guten

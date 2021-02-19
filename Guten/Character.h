@@ -51,13 +51,17 @@ namespace guten
 
 			bool operator==(const Character & rhs) const { return false; }// fix this }
 
-			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs);
+			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs)
+			{
+				os << rhs.m_value;
+				
+				return os;
+			}
 
 		protected:
 			boost::variant<uint8_t, lines::LineChar, blocks::BlockChar> m_value;
 		};
 	} // namespace core
-
-	GUTEN_API std::ostream & operator<<(std::ostream & os, const guten::core::Character & rhs);
 } // namespace guten
 
+//GUTEN_API std::ostream & operator<<(std::ostream & os, const guten::core::Character & rhs);

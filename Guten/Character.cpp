@@ -153,13 +153,13 @@ namespace guten
 			return ret;
 		}
 
-		// << << << << << << << << << << << << << << << << << << << << << << << << 
-		std::ostream & operator<<(std::ostream & os, const guten::core::Character & rhs)
-		{
-			os << rhs.m_value;
-
-			return os;
-		}
-
 	} // namespace core
 } // namespace guten
+
+// << << << << << << << << << << << << << << << << << << << << << << << << 
+//std::ostream & operator<<(std::ostream & os, const guten::core::Character & rhs)
+//{
+//	os << rhs.value();
+//
+//	return os;
+//}
