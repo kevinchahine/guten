@@ -27,6 +27,15 @@
     <Filter Include="draw">
       <UniqueIdentifier>{f7979be8-7ed4-4ce1-977f-7a83e0fa9be7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="boards">
+      <UniqueIdentifier>{688bbb0a-e53d-49cf-ab0a-44f53d6cd60d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="charts">
+      <UniqueIdentifier>{4bdb49e6-5fa7-4792-aa0f-db1da987a3bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphs">
+      <UniqueIdentifier>{f77875f6-4c5e-4379-8a54-02c3f995615f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -74,6 +83,12 @@
     <ClInclude Include="guten.hpp">
       <Filter>Special Files</Filter>
     </ClInclude>
+    <ClInclude Include="CheckerBoard.h">
+      <Filter>boards</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorHelpers.h">
+      <Filter>color</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -114,6 +129,12 @@
     </ClCompile>
     <ClCompile Include="DrawFunctions.cpp">
       <Filter>draw</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckerBoard.cpp">
+      <Filter>boards</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorHelpers.cpp">
+      <Filter>color</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

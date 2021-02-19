@@ -35,7 +35,7 @@ namespace guten
 			colored_char_t & operator()(const Point & p) { return (*this)[p.row][p.col]; }
 			const colored_char_t & operator()(const Point & p) const { return (*this)[p.row][p.col]; }
 
-			void print(std::ostream & os = std::cout, size_t nTabs = 0) const;
+			void print(size_t nTabs = 0, std::ostream & os = std::cout) const;
 
 			void resize(size_t nRows, size_t nCols);
 

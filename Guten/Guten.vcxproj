@@ -164,8 +164,10 @@
   <ItemGroup>
     <ClInclude Include="BlockChar.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="CheckerBoard.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="ColoredChar.h" />
+    <ClInclude Include="ColorHelpers.h" />
     <ClInclude Include="DrawFunctions.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="guten.hpp" />
@@ -180,8 +182,10 @@
   <ItemGroup>
     <ClCompile Include="BlockChar.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CheckerBoard.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="ColoredChar.cpp" />
+    <ClCompile Include="ColorHelpers.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DrawFunctions.cpp" />
     <ClCompile Include="GutenExports.cpp" />

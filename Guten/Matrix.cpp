@@ -12,12 +12,13 @@ namespace guten
 			resize(nRows, nCols);
 		}
 
-		void Matrix::print(std::ostream & os, size_t nTabs) const
+		void Matrix::print(size_t nTabs, std::ostream & os) const
 		{
 			const size_t N_ROWS = this->shape()[0];
 			const size_t N_COLS = this->shape()[1];
 
 			for (size_t row = 0; row < N_ROWS; row++) {
+				os << color::push();
 
 				for (size_t tab = 0; tab < nTabs; tab++) {
 					os << "    ";
@@ -27,7 +28,7 @@ namespace guten
 					os << (*this)[row][col];
 				}
 
-				os << '\n';
+				os << color::pop() << '\n';
 			}
 		}
 

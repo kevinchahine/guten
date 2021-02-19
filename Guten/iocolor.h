@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <stack>
+#include <exception>
 
 //#ifdef WIN32
 #include <Windows.h>
@@ -19,11 +20,11 @@ namespace guten
 {
 	namespace color
 	{
-		static WORD currColor = Color::calcColor(Color::WHITE, Color::BLACK);
-		static HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-		static CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
-		static std::stack<std::ios_base::fmtflags> flags;
-		static std::stack<WORD> colorStack;
+		extern GUTEN_API WORD currColor;
+		extern GUTEN_API HANDLE h;
+		extern GUTEN_API CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
+		extern GUTEN_API std::stack<std::ios_base::fmtflags> flags;
+		extern GUTEN_API std::stack<WORD> colorStack;
 		
 		// Stream Manipulator class
 		// Purpose: Sets color of the next characters printed to console
@@ -97,6 +98,9 @@ namespace guten
 
 			friend std::ostream& operator<<(std::ostream& os, const pop& pop)
 			{
+				if (colorStack.empty()) {
+					throw std::exception{ "Color Stack is empty. Make sure push() and pop() manipulators are balanced." };
+				}
 				os << setcolor(colorStack.top());
 				colorStack.pop();
 				os.flags(flags.top());
