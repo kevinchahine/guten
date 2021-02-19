@@ -1,0 +1,2 @@
+#define GUTEN_API __declspec(dllexport)
+#define GUTEN_API __declspec(dllimport)
