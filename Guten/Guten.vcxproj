@@ -166,10 +166,12 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="ColoredChar.h" />
+    <ClInclude Include="DrawFunctions.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GutenExports.h" />
     <ClInclude Include="iocolor.h" />
     <ClInclude Include="LineChar.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Size.h" />
@@ -180,9 +182,11 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="ColoredChar.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="DrawFunctions.cpp" />
     <ClCompile Include="GutenExports.cpp" />
     <ClCompile Include="iocolor.cpp" />
     <ClCompile Include="LineChar.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

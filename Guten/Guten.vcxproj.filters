@@ -24,6 +24,9 @@
     <Filter Include="core">
       <UniqueIdentifier>{980a97f4-2c1a-47e8-9161-2734049d0b81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="draw">
+      <UniqueIdentifier>{f7979be8-7ed4-4ce1-977f-7a83e0fa9be7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -57,10 +60,16 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
-      <Filter>core</Filter>
+      <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Size.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawFunctions.h">
+      <Filter>draw</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,10 +101,16 @@
       <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="Point.cpp">
-      <Filter>core</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Size.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
       <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawFunctions.cpp">
+      <Filter>draw</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

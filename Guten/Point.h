@@ -3,7 +3,7 @@
 #include "GutenExports.h"
 #include "Size.h"
 
-namespace cli
+namespace guten
 {
 	class GUTEN_API Point {
 	public:
@@ -64,4 +64,4 @@ namespace cli
 		int row = 0;
 		int col = 0;
 	};
-}
+} // namespace guten

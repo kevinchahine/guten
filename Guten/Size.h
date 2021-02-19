@@ -2,7 +2,7 @@
 
 #include "GutenExports.h"
 
-namespace cli
+namespace guten
 {
 	class GUTEN_API Size {
 	public:
@@ -27,5 +27,5 @@ namespace cli
 		int height = 0;
 		int width = 0;
 	};
-}
+} // namespace guten
 
