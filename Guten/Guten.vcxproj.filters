@@ -56,6 +56,12 @@
     <ClInclude Include="ColoredChar.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="Size.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -83,6 +89,12 @@
       <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="Size.cpp">
       <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
