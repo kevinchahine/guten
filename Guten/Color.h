@@ -106,7 +106,5 @@ namespace guten
 		extern GUTEN_API const Color lightmagenta;
 		extern GUTEN_API const Color brown;
 		extern GUTEN_API const Color white;
-
-
-	}
-}
+	} // namespace color
+} // namespace guten

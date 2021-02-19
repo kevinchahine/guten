@@ -28,7 +28,7 @@ namespace guten
 		// Stream Manipulator class
 		// Purpose: Sets color of the next characters printed to console
 		// Ex: 
-		//		using namespace cli;
+		//		using namespace guten;
 		//		
 		//		cout << setcolor(color::GREEN) << "Hello";
 		class setcolor
@@ -104,8 +104,8 @@ namespace guten
 				return os;
 			}
 		};
-	}
-}
+	} // namespace color
+} // namespace guten
 
 // Intentionally declared outside a namespace 
 GUTEN_API std::ostream& operator<<(std::ostream& os, const guten::color::Color& rhs);

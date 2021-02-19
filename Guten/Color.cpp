@@ -109,5 +109,5 @@ namespace guten
 		GUTEN_API const Color lightmagenta(Color::LIGHTMAGENTA);
 		GUTEN_API const Color brown(Color::BROWN);
 		GUTEN_API const Color white(Color::WHITE);
-	}
-}
+	} // namespace color
+} // namespace guten

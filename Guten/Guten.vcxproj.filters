@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -16,42 +8,82 @@
     <Filter Include="color">
       <UniqueIdentifier>{03fb2666-0575-4825-ad65-7d9ed376600f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lines">
+      <UniqueIdentifier>{08948c29-04d0-4f98-a35c-db03c2793b5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks">
+      <UniqueIdentifier>{5b0b073f-3597-4ab7-810c-8d2172646f49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Special Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{974f5e23-d34b-46b9-9518-a71a0ee3f944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{980a97f4-2c1a-47e8-9161-2734049d0b81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GutenExports.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Color.h">
       <Filter>color</Filter>
     </ClInclude>
     <ClInclude Include="iocolor.h">
       <Filter>color</Filter>
     </ClInclude>
+    <ClInclude Include="BlockChar.h">
+      <Filter>blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="LineChar.h">
+      <Filter>lines</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Special Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GutenExports.h">
+      <Filter>Special Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Special Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="ColoredChar.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Special Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Special Files</Filter>
     </ClCompile>
     <ClCompile Include="GutenExports.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Special Files</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>color</Filter>
     </ClCompile>
     <ClCompile Include="iocolor.cpp">
       <Filter>color</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockChar.cpp">
+      <Filter>blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="LineChar.cpp">
+      <Filter>lines</Filter>
+    </ClCompile>
+    <ClCompile Include="ColoredChar.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
