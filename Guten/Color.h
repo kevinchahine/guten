@@ -41,7 +41,6 @@ namespace guten
 			static const type WHITE = 15;
 
 			// --- Static Methods ---
-			/*GUTEN_API*/ static void printAllColors(std::ostream & os = std::cout);
 
 			static type calcColor(type foreground, type background)
 			{
@@ -69,6 +68,10 @@ namespace guten
 			virtual ~Color() noexcept = default;
 			Color & operator=(const Color &) = default;
 			Color & operator=(Color &&) noexcept = default;
+
+			Color operator|(const Color & lhs) {
+				return this->hue | lhs.hue;
+			}
 
 			void setfg(type hue);
 			void setfg(const Color & hue);

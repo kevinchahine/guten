@@ -3,6 +3,8 @@
 #include "GutenExports.h"
 #include "Size.h"
 
+#include <iostream>
+
 namespace guten
 {
 	class GUTEN_API Point {
@@ -11,6 +13,9 @@ namespace guten
 		Point(int row, int col) :
 			row(row),
 			col(col) {}
+		Point(const Size & size) :
+			row(size.rows()),
+			col(size.cols()) {}
 		Point(const Point &) = default;
 		Point(Point &&) noexcept = default;
 		virtual ~Point() noexcept = default;
@@ -61,7 +66,15 @@ namespace guten
 			return *this;
 		}
 
+		//friend std::ostream & operator<<(std::ostream & os, const Point & point);
+
+	public:
 		int row = 0;
 		int col = 0;
 	};
 } // namespace guten
+
+//std::ostream & operator<<(std::ostream & os, const guten::Point & point)
+//{
+//	os << '(' << point.row << ", " << point.col << ')';
+//}

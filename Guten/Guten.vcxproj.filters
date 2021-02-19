@@ -36,6 +36,12 @@
     <Filter Include="graphs">
       <UniqueIdentifier>{f77875f6-4c5e-4379-8a54-02c3f995615f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="views">
+      <UniqueIdentifier>{82672741-23af-4abf-8df0-72206cdd81dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bars">
+      <UniqueIdentifier>{9e2cafce-b74c-4622-9044-defb5db6dbe6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -89,6 +95,7 @@
     <ClInclude Include="ColorHelpers.h">
       <Filter>color</Filter>
     </ClInclude>
+    <ClInclude Include="ProgressBar.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -135,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="ColorHelpers.cpp">
       <Filter>color</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>Special Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

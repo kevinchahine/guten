@@ -85,5 +85,15 @@ namespace guten
 				mat(lowerRigth).color = color;
 			}
 		}
+
+		void putText(core::Matrix & mat, const std::string & text, const Point & origin, const color::Color & color)
+		{
+			for (int i = 0; i < text.size(); i++) {
+				auto & elem = mat[origin.row][origin.col + i];
+				
+				elem.character = text[i];
+				elem.color = color;
+			}
+		}
 	} // namespace draw
-} // namespace guten
+} // namespace gutenS

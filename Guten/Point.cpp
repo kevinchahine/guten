@@ -3,5 +3,4 @@
 
 namespace guten
 {
-
 } // namespace guten

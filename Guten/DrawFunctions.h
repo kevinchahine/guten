@@ -20,5 +20,8 @@ namespace guten
 		GUTEN_API void rectangle(core::Matrix & mat, const Point & p1, const Point & p2, const color::Color & color = color::white, bool doubleLines = false);
 
 		GUTEN_API void rectangle(core::Matrix & mat, const Point & origin, const Size & size, const color::Color & color = color::white, bool doubleLines = false);
+
+		GUTEN_API void putText(core::Matrix & mat, const std::string & text, const Point & origin, const color::Color & color = color::white);
+
 	} // namespace draw
 } // namespace guten
