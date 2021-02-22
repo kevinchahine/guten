@@ -95,7 +95,9 @@
     <ClInclude Include="ColorHelpers.h">
       <Filter>color</Filter>
     </ClInclude>
-    <ClInclude Include="ProgressBar.h" />
+    <ClInclude Include="ProgressBar.h">
+      <Filter>bars</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
