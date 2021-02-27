@@ -85,7 +85,7 @@ namespace guten
 			for (int cellRow = 0; cellRow < 8; cellRow++) {
 				for (int cellCol = 0; cellCol < 8; cellCol++) {
 
-					color::Color color{ (cellRow % 2 == cellCol % 2 ? darkCell : lightCell) };
+					color::Color color{ (cellRow % 2 == cellCol % 2 ? lightCell : darkCell) };
 
 					for (int row = 0; row < cellSize.height; row++) {
 						for (int col = 0; col < cellSize.width; col++) {
@@ -111,8 +111,8 @@ namespace guten
 
 			// -- TOP and BOTTOM --
 			for (int cellCol = 0; cellCol < 8; cellCol++) {
-				color::Color topColor{ (cellCol % 2 ? darkCell : lightCell) };
-				color::Color botColor{ (cellCol % 2 ? lightCell : darkCell) };
+				color::Color topColor{ (cellCol % 2 ? lightCell : darkCell) };
+				color::Color botColor{ (cellCol % 2 ? darkCell : lightCell) };
 
 				for (int col = 0; col < cellSize.width; col++) {
 					const int c = 2 + cellCol * cellSize.width + col;
@@ -131,8 +131,8 @@ namespace guten
 
 			// -- LEFT and RIGHT --
 			for (int cellRow = 0; cellRow < 8; cellRow++) {
-				color::Color lefColor{ (cellRow % 2 ? darkCell : lightCell) };
-				color::Color rigColor{ (cellRow % 2 ? lightCell : darkCell) };
+				color::Color lefColor{ (cellRow % 2 ? lightCell : darkCell) };
+				color::Color rigColor{ (cellRow % 2 ? darkCell : lightCell) };
 
 				for (int row = 0; row < cellSize.height; row++) {
 					const int r = 2 + cellRow * cellSize.height + row;
@@ -150,10 +150,10 @@ namespace guten
 			}
 
 			// -- Corners --
-			(*this)[TOP_ROW][LEF_COL].color.setbg(darkCell);
-			(*this)[TOP_ROW][RIG_COL].color.setbg(lightCell);
-			(*this)[BOT_ROW][LEF_COL].color.setbg(lightCell);
-			(*this)[BOT_ROW][RIG_COL].color.setbg(darkCell);
+			(*this)[TOP_ROW][LEF_COL].color.setbg(lightCell);
+			(*this)[TOP_ROW][RIG_COL].color.setbg(darkCell);
+			(*this)[BOT_ROW][LEF_COL].color.setbg(darkCell);
+			(*this)[BOT_ROW][RIG_COL].color.setbg(lightCell);
 		}
 	} // namespace board
 } // namespace guten
