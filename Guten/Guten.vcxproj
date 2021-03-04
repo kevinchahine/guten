@@ -166,37 +166,52 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlignedView.h" />
     <ClInclude Include="BlockChar.h" />
+    <ClInclude Include="Boarder.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CheckerBoard.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="ColoredChar.h" />
     <ClInclude Include="ColorHelpers.h" />
+    <ClInclude Include="ConstrainedLayout.h" />
     <ClInclude Include="DrawFunctions.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GridView.h" />
     <ClInclude Include="guten.hpp" />
     <ClInclude Include="GutenExports.h" />
+    <ClInclude Include="HorizontalView.h" />
     <ClInclude Include="iocolor.h" />
+    <ClInclude Include="LinearLayout.h" />
     <ClInclude Include="LineChar.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="ProgressBar.h" />
+    <ClInclude Include="RelativeLayout.h" />
     <ClInclude Include="Size.h" />
+    <ClInclude Include="TextView.h" />
+    <ClInclude Include="VerticalView.h" />
+    <ClInclude Include="View.h" />
+    <ClInclude Include="ViewGroup.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlignedView.cpp" />
     <ClCompile Include="BlockChar.cpp" />
+    <ClCompile Include="Boarder.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CheckerBoard.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="ColoredChar.cpp" />
     <ClCompile Include="ColorHelpers.cpp" />
+    <ClCompile Include="ConstrainedLayout.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DrawFunctions.cpp" />
     <ClCompile Include="GridView.cpp" />
     <ClCompile Include="GutenExports.cpp" />
+    <ClCompile Include="HorizontalView.cpp" />
     <ClCompile Include="iocolor.cpp" />
+    <ClCompile Include="LinearLayout.cpp" />
     <ClCompile Include="LineChar.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="pch.cpp">
@@ -207,7 +222,12 @@
     </ClCompile>
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="RelativeLayout.cpp" />
     <ClCompile Include="Size.cpp" />
+    <ClCompile Include="TextView.cpp" />
+    <ClCompile Include="VerticalView.cpp" />
+    <ClCompile Include="View.cpp" />
+    <ClCompile Include="ViewGroup.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

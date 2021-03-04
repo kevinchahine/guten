@@ -14,6 +14,7 @@ namespace guten
 			resize(nRows, nCols);
 		}
 
+
 		void Matrix::print(size_t nTabs, std::ostream & os) const
 		{
 			const size_t N_ROWS = this->shape()[0];

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 #include <Guten/guten.hpp>
 
@@ -16,6 +18,7 @@ int main()
 
 	mat.print();
 	
-	cin.get();
+	this_thread::sleep_for(chrono::seconds(1));
+	//cin.get();
 	return 0;
 }
