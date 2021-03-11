@@ -13,6 +13,8 @@
 #include <iostream>
 #include <iomanip>
 
+#pragma error (disable: 2398)
+
 namespace guten
 {
 	namespace core
@@ -46,6 +48,9 @@ namespace guten
 			Size size() const { return Size(nRows(), nCols()); }
 
 			void rotate180();
+
+			void copyTo(Matrix & dst) const;
+			void copyTo(Matrix & dst, Point at) const;
 
 		protected:
 		};

@@ -174,6 +174,7 @@
     <ClInclude Include="ColorHelpers.h" />
     <ClInclude Include="DrawFunctions.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GridView.h" />
     <ClInclude Include="guten.hpp" />
     <ClInclude Include="GutenExports.h" />
     <ClInclude Include="iocolor.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="ColorHelpers.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DrawFunctions.cpp" />
+    <ClCompile Include="GridView.cpp" />
     <ClCompile Include="GutenExports.cpp" />
     <ClCompile Include="iocolor.cpp" />
     <ClCompile Include="LineChar.cpp" />

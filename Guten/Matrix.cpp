@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Matrix.h"
 
+#include <algorithm>	// for std::min()
+
 using namespace std;
 
 namespace guten
@@ -41,6 +43,30 @@ namespace guten
 		void Matrix::rotate180()
 		{
 			cout << __FUNCTION__ << "() still needs to be implemented\n";
+		}
+
+		void Matrix::copyTo(Matrix & dst) const
+		{
+			const int ROW_LIMIT = min(this->nRows(), dst.nRows());
+			const int COL_LIMIT = min(this->nCols(), dst.nCols());
+
+			for (int row = 0; row < ROW_LIMIT; row++) {
+				for (int col = 0; col < COL_LIMIT; col++) {
+					dst[row][col] = (*this)[row][col];
+				}
+			}
+		}
+
+		void Matrix::copyTo(Matrix & dst, Point at) const
+		{
+			const int ROW_LIMIT = min(this->nRows(), dst.nRows() - at.row);
+			const int COL_LIMIT = min(this->nCols(), dst.nCols() - at.col);
+
+			for (int row = 0; row < ROW_LIMIT; row++) {
+				for (int col = 0; col < COL_LIMIT; col++) {
+					dst[row + at.row][col + at.col] = (*this)[row][col];
+				}
+			}
 		}
 	} // namespace core
 } // namespace guten

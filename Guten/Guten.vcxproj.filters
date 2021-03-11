@@ -42,6 +42,9 @@
     <Filter Include="bars">
       <UniqueIdentifier>{9e2cafce-b74c-4622-9044-defb5db6dbe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="grids">
+      <UniqueIdentifier>{c3f1d7c4-307f-478f-8608-0355e952f33c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -98,6 +101,7 @@
     <ClInclude Include="ProgressBar.h">
       <Filter>bars</Filter>
     </ClInclude>
+    <ClInclude Include="GridView.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -146,6 +150,9 @@
       <Filter>color</Filter>
     </ClCompile>
     <ClCompile Include="ProgressBar.cpp">
+      <Filter>Special Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridView.cpp">
       <Filter>Special Files</Filter>
     </ClCompile>
   </ItemGroup>
