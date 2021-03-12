@@ -185,7 +185,6 @@
     <ClInclude Include="LinearLayout.h" />
     <ClInclude Include="LineChar.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="Matrix2.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="ProgressBar.h" />
@@ -215,7 +214,6 @@
     <ClCompile Include="LinearLayout.cpp" />
     <ClCompile Include="LineChar.cpp" />
     <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="Matrix2.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -22,35 +22,32 @@ namespace guten
 
 		class GUTEN_API Matrix
 		{
+			class Impl;
+
 		public:
-
 			Matrix();
-			Matrix(size_t nRows, size_t nCols);
-			Matrix(const Matrix &) = default;
-			Matrix(Matrix &&) noexcept = default;
-			~Matrix();
-			Matrix & operator=(const Matrix &) = default;
-			Matrix & operator=(Matrix &&) noexcept = default;
-
-			colored_char_t & operator()(const Point & p) { colored_char_t temp; return temp; }/// (*this)[p.row][p.col];
-			
-			const colored_char_t & operator()(const Point & p) const { colored_char_t temp; return temp; } /// return (*this)[p.row][p.col];
+			Matrix(size_t row, size_t col);
+			Matrix(const Matrix & m);
+			Matrix(Matrix && m) noexcept;
+			~Matrix() noexcept;
+			Matrix & operator=(const Matrix & m);
+			Matrix & operator=(Matrix && m) noexcept;
 
 			colored_char_t & at(size_t row, size_t col);
 			const colored_char_t & at(size_t row, size_t col) const;
 
+			colored_char_t & operator()(const Point & p) { return (*this).at(p.row, p.col); }
+			const colored_char_t & operator()(const Point & p) const { return (*this).at(p.row, p.col); }
+
 			void print(size_t nTabs = 0, std::ostream & os = std::cout) const;
 
-			void resize(size_t nRows, size_t nCols);
-
-			inline void resize(const Size & size) { resize(size.rows(), size.cols()); }
-			
 			int nRows() const;
 			int nCols() const;
 			Size size() const;
 
-			void rotate180();
+			void resize(size_t nRows, size_t nCols);
 
+<<<<<<< HEAD
 			void copyTo(Matrix & dst) const;
 			void copyTo(Matrix & dst, Point at) const;
 
@@ -58,6 +55,12 @@ namespace guten
 			class Impl;
 			Impl * pImpl;
 			//std::unique_ptr<Impl> pImpl;// = std::make_unique<Impl>();
+=======
+			void resize(const Size & size);
+
+		private:
+			std::unique_ptr<Impl> pImpl;
+>>>>>>> e5d3b89 (Swapped Matrix2 inplace of Matrix. Now Matrix is implemented using pimpl idiom. Seems to run find but not thourouly tested.)
 		};
 	} // namespace core
 } // namespace guten

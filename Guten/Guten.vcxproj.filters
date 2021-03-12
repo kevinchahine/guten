@@ -132,7 +132,6 @@
     <ClInclude Include="RelativeLayout.h">
       <Filter>views</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -184,9 +183,6 @@
       <Filter>Special Files</Filter>
     </ClCompile>
     <ClCompile Include="GridView.cpp">
-      <Filter>Special Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix2.cpp">
       <Filter>Special Files</Filter>
     </ClCompile>
   </ItemGroup>
