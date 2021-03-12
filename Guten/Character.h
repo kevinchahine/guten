@@ -49,7 +49,7 @@ namespace guten
 			Character operator-(const lines::LineChar & lineChar) const;
 			Character operator-(const blocks::BlockChar & blockChar) const;
 
-			bool operator==(const Character & rhs) const { return false; }// fix this }
+			bool operator==(const Character & rhs) const { return false; }// TODO: fix this }
 
 			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs)
 			{

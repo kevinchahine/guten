@@ -102,6 +102,37 @@
       <Filter>bars</Filter>
     </ClInclude>
     <ClInclude Include="GridView.h" />
+    <ClInclude Include="View.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="HorizontalView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="VerticalView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="Boarder.h">
+      <Filter>boarders</Filter>
+    </ClInclude>
+    <ClInclude Include="AlignedView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="TextView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewGroup.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearLayout.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstrainedLayout.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="RelativeLayout.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -153,6 +184,9 @@
       <Filter>Special Files</Filter>
     </ClCompile>
     <ClCompile Include="GridView.cpp">
+      <Filter>Special Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix2.cpp">
       <Filter>Special Files</Filter>
     </ClCompile>
   </ItemGroup>

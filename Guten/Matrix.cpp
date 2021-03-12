@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "Matrix.h"
+#include <stdint.h>
+
+#include <boost/multi_array.hpp>	// Break this down into only the headers we need
 
 #include <algorithm>	// for std::min()
 
@@ -9,41 +12,102 @@ namespace guten
 {
 	namespace core
 	{
-		Matrix::Matrix(size_t nRows, size_t nCols)
+		// ----- Implementation Definitions -----
+
+		using multi_array_t = boost::multi_array<colored_char_t, 2>;
+
+		class Matrix::Impl //: public multi_array_t
 		{
-			resize(nRows, nCols);
+		public:
+
+			Impl();
+			Impl(size_t nRows, size_t nCols);
+			Impl(const Impl &) = default;
+			Impl(Impl &&) noexcept = default;
+			~Impl() noexcept;
+			Impl & operator=(const Impl &) = default;
+			Impl & operator=(Impl &&) noexcept = default;
+			
+			///colored_char_t & operator()(const Point & p) { return (*this)[p.row][p.col]; }
+			///const colored_char_t & operator()(const Point & p) const { return (*this)[p.row][p.col]; }
+			///
+			///void print(size_t nTabs = 0, std::ostream & os = std::cout) const;
+			///
+			///void resize(size_t nRows, size_t nCols);
+			///
+			///inline void resize(const Size & size) { resize(size.rows(), size.cols()); }
+			///
+			///int nRows() const { return static_cast<int>(this->shape()[0]); }
+			///int nCols() const { return static_cast<int>(this->shape()[1]); }
+			///Size size() const { return Size(nRows(), nCols()); }
+			///
+			///void rotate180();
+
+		protected:
+		};
+
+		Matrix::Impl::Impl()
+		{
 		}
 
+		
+
+		Matrix::Impl::~Impl() noexcept
+		{
+		}
+
+		// ----- Interface Definitions -----
+
+		Matrix::Matrix()
+		{
+		}
+
+		Matrix::Matrix(size_t nRows, size_t nCols) /*:
+			pImpl(make_unique<Impl>(nRows, nCols))*/ {}
+
+		Matrix::~Matrix()
+		{
+		}
+
+		colored_char_t & Matrix::at(size_t row, size_t col)
+		{
+			// TODO: insert return statement here
+			colored_char_t c;	// TODO: BAD
+			return c;			// TODO: BAD
+		}
+
+		const colored_char_t & Matrix::at(size_t row, size_t col) const
+		{
+			// TODO: insert return statement here
+			return colored_char_t();// TODO: BAD
+		}
 
 		void Matrix::print(size_t nTabs, std::ostream & os) const
 		{
-			const size_t N_ROWS = this->shape()[0];
-			const size_t N_COLS = this->shape()[1];
-
-			for (size_t row = 0; row < N_ROWS; row++) {
-				os << color::push();
-
-				for (size_t tab = 0; tab < nTabs; tab++) {
-					os << "    ";
-				}
-
-				for (size_t col = 0; col < N_COLS; col++) {
-					os << (*this)[row][col];
-				}
-
-				os << color::pop() << '\n';
-			}
+			//pImpl->print(nTabs, os);
 		}
 
 		void Matrix::resize(size_t nRows, size_t nCols)
 		{
-			multi_array_t::extent_gen extents;
-			this->multi_array_t::resize(extents[nRows][nCols]);
+		}
+		
+		int Matrix::nRows() const
+		{
+			return 0;/// static_cast<int>(pImpl->shape()[0]);
+		}
+
+		int Matrix::nCols() const
+		{
+			return 0;/// static_cast<int>(pImpl->shape()[1]);
+		}
+
+		Size Matrix::size() const
+		{
+			return Size(nRows(), nCols());
 		}
 
 		void Matrix::rotate180()
 		{
-			cout << __FUNCTION__ << "() still needs to be implemented\n";
 		}
 
 		void Matrix::copyTo(Matrix & dst) const
@@ -71,4 +135,3 @@ namespace guten
 		}
 	} // namespace core
 } // namespace guten
-

@@ -42,8 +42,8 @@ namespace guten
 			int r = 2 + cellSize.rows() * row + (cellSize.rows() / 2);
 			int c = 2 + cellSize.cols() * col + (cellSize.cols() / 2);
 
-			(*this)[r][c].character = piece;
-			(*this)[r][c].color.setfg(isLight ? lightPiece : darkPiece);
+			(*this).at(r, c).character = piece;
+			(*this).at(r, c).color.setfg(isLight ? lightPiece : darkPiece);
 		}
 
 		void CheckerBoard::placePiece(char piece, const Point & pos, bool isLight)
@@ -58,7 +58,7 @@ namespace guten
 					int rr = 2 + cellSize.rows() * row + r;
 					int cc = 2 + cellSize.cols() * col + c;
 
-					(*this)[rr][cc].color.setbg(row % 2 == col % 2 ? darkHighlight : lightHighlight);
+					(*this).at(rr, cc).color.setbg(row % 2 == col % 2 ? darkHighlight : lightHighlight);
 				}
 			}
 		}
@@ -93,8 +93,8 @@ namespace guten
 							const int r = 2 + cellRow * cellSize.height + row;
 							const int c = 2 + cellCol * cellSize.width + col;
 
-							(*this)[r][c].character = ' ';		// Remove any placed pieces
-							(*this)[r][c].color.setbg(color);
+							(*this).at(r, c).character = ' ';		// Remove any placed pieces
+							(*this).at(r, c).color.setbg(color);
 						}
 					}
 				}
@@ -117,16 +117,16 @@ namespace guten
 				for (int col = 0; col < cellSize.width; col++) {
 					const int c = 2 + cellCol * cellSize.width + col;
 
-					(*this)[TOP_ROW][c].color.setbg(topColor);
-					(*this)[BOT_ROW][c].color.setbg(botColor);
+					(*this).at(TOP_ROW, c).color.setbg(topColor);
+					(*this).at(BOT_ROW, c).color.setbg(botColor);
 				}
 
 				// - Place Letter -
 				const int c = 2 + cellCol * cellSize.width + (cellSize.width / 2);
-				(*this)[TOP_ROW][c].character = 'A' + cellCol;
-				(*this)[TOP_ROW][c].color.setfg(botColor);
-				(*this)[BOT_ROW][c].character = 'A' + cellCol;
-				(*this)[BOT_ROW][c].color.setfg(topColor);
+				(*this).at(TOP_ROW, c).character = 'A' + cellCol;
+				(*this).at(TOP_ROW, c).color.setfg(botColor);
+				(*this).at(BOT_ROW, c).character = 'A' + cellCol;
+				(*this).at(BOT_ROW, c).color.setfg(topColor);
 			}
 
 			// -- LEFT and RIGHT --
@@ -137,23 +137,23 @@ namespace guten
 				for (int row = 0; row < cellSize.height; row++) {
 					const int r = 2 + cellRow * cellSize.height + row;
 
-					(*this)[r][LEF_COL].color.setbg(lefColor);
-					(*this)[r][RIG_COL].color.setbg(rigColor);
+					(*this).at(r, LEF_COL).color.setbg(lefColor);
+					(*this).at(r, RIG_COL).color.setbg(rigColor);
 				}
 
 				// - Place Letter -
 				const int r = 2 + cellRow * cellSize.height + (cellSize.height / 2);
-				(*this)[r][LEF_COL].character = '8' - cellRow;
-				(*this)[r][LEF_COL].color.setfg(rigColor);
-				(*this)[r][RIG_COL].character = '8' - cellRow;
-				(*this)[r][RIG_COL].color.setfg(lefColor);
+				(*this).at(r, LEF_COL).character = '8' - cellRow;
+				(*this).at(r, LEF_COL).color.setfg(rigColor);
+				(*this).at(r, RIG_COL).character = '8' - cellRow;
+				(*this).at(r, RIG_COL).color.setfg(lefColor);
 			}
 
 			// -- Corners --
-			(*this)[TOP_ROW][LEF_COL].color.setbg(lightCell);
-			(*this)[TOP_ROW][RIG_COL].color.setbg(darkCell);
-			(*this)[BOT_ROW][LEF_COL].color.setbg(darkCell);
-			(*this)[BOT_ROW][RIG_COL].color.setbg(lightCell);
+			(*this).at(TOP_ROW, LEF_COL).color.setbg(darkCell);
+			(*this).at(TOP_ROW, RIG_COL).color.setbg(lightCell);
+			(*this).at(BOT_ROW, LEF_COL).color.setbg(lightCell);
+			(*this).at(BOT_ROW, RIG_COL).color.setbg(darkCell);
 		}
 	} // namespace board
 } // namespace guten

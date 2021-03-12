@@ -15,8 +15,8 @@ namespace guten
 			const auto & HORIZONTAL = (doubleLines ? lines::double_horizontal : lines::horizontal);
 
 			for (size_t col = p1.col; col < p1.col + width; col++) {
-				mat[p1.row][col].character += HORIZONTAL;
-				mat[p1.row][col].color = color;
+				mat.at(p1.row, col).character += HORIZONTAL;
+				mat.at(p1.row, col).color = color;
 			}
 		}
 
@@ -25,8 +25,8 @@ namespace guten
 			const auto & VERTICAL = (doubleLines ? lines::double_vertical : lines::vertical);
 
 			for (size_t row = p1.row; row < p1.row + height; row++) {
-				mat[row][p1.col].character += VERTICAL;
-				mat[row][p1.col].color = color;
+				mat.at(row, p1.col).character += VERTICAL;
+				mat.at(row, p1.col).color = color;
 			}
 		}
 
@@ -89,7 +89,7 @@ namespace guten
 		void putText(core::Matrix & mat, const std::string & text, const Point & origin, const color::Color & color)
 		{
 			for (int i = 0; i < text.size(); i++) {
-				auto & elem = mat[origin.row][origin.col + i];
+				auto & elem = mat.at(origin.row, origin.col + i);
 				
 				elem.character = text[i];
 				elem.color = color;
