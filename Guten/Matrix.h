@@ -12,8 +12,6 @@
 #include <iomanip>
 #include <memory>
 
-#pragma error (disable: 2398)
-
 namespace guten
 {
 	namespace core
@@ -46,21 +44,13 @@ namespace guten
 			Size size() const;
 
 			void resize(size_t nRows, size_t nCols);
+			void resize(const Size & size);
 
-<<<<<<< HEAD
 			void copyTo(Matrix & dst) const;
 			void copyTo(Matrix & dst, Point at) const;
 
-		protected:
-			class Impl;
-			Impl * pImpl;
-			//std::unique_ptr<Impl> pImpl;// = std::make_unique<Impl>();
-=======
-			void resize(const Size & size);
-
 		private:
 			std::unique_ptr<Impl> pImpl;
->>>>>>> e5d3b89 (Swapped Matrix2 inplace of Matrix. Now Matrix is implemented using pimpl idiom. Seems to run find but not thourouly tested.)
 		};
 	} // namespace core
 } // namespace guten

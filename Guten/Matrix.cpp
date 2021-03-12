@@ -2,7 +2,7 @@
 #include "Matrix.h"
 #include <stdint.h>
 
-#include <boost/multi_array.hpp>	// Break this down into only the headers we need
+#include <boost/multi_array.hpp>
 
 #include <algorithm>	// for std::min()
 
@@ -145,7 +145,7 @@ namespace guten
 
 			for (int row = 0; row < ROW_LIMIT; row++) {
 				for (int col = 0; col < COL_LIMIT; col++) {
-					dst[row][col] = (*this)[row][col];
+					dst.at(row, col) = this->at(row, col);
 				}
 			}
 		}
@@ -157,7 +157,7 @@ namespace guten
 
 			for (int row = 0; row < ROW_LIMIT; row++) {
 				for (int col = 0; col < COL_LIMIT; col++) {
-					dst[row + at.row][col + at.col] = (*this)[row][col];
+					dst.at(row + at.row, col + at.col) = this->at(row, col);
 				}
 			}
 		}

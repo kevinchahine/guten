@@ -42,8 +42,8 @@
     <Filter Include="bars">
       <UniqueIdentifier>{9e2cafce-b74c-4622-9044-defb5db6dbe6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="grids">
-      <UniqueIdentifier>{c3f1d7c4-307f-478f-8608-0355e952f33c}</UniqueIdentifier>
+    <Filter Include="boarders">
+      <UniqueIdentifier>{44bbb8de-1309-43e9-a451-04b392a35aa9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +101,6 @@
     <ClInclude Include="ProgressBar.h">
       <Filter>bars</Filter>
     </ClInclude>
-    <ClInclude Include="GridView.h" />
     <ClInclude Include="View.h">
       <Filter>views</Filter>
     </ClInclude>
@@ -110,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="VerticalView.h">
       <Filter>views</Filter>
-    </ClInclude>
-    <ClInclude Include="Boarder.h">
-      <Filter>boarders</Filter>
     </ClInclude>
     <ClInclude Include="AlignedView.h">
       <Filter>views</Filter>
@@ -131,6 +127,12 @@
     </ClInclude>
     <ClInclude Include="RelativeLayout.h">
       <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="GridView.h">
+      <Filter>views</Filter>
+    </ClInclude>
+    <ClInclude Include="Boarder.h">
+      <Filter>boarders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -179,11 +181,41 @@
     <ClCompile Include="ColorHelpers.cpp">
       <Filter>color</Filter>
     </ClCompile>
-    <ClCompile Include="ProgressBar.cpp">
-      <Filter>Special Files</Filter>
+    <ClCompile Include="AlignedView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstrainedLayout.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="HorizontalView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearLayout.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="RelativeLayout.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="TextView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="VerticalView.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewGroup.cpp">
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="Boarder.cpp">
+      <Filter>boarders</Filter>
     </ClCompile>
     <ClCompile Include="GridView.cpp">
-      <Filter>Special Files</Filter>
+      <Filter>views</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>bars</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
