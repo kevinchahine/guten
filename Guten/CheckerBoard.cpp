@@ -51,16 +51,24 @@ namespace guten
 			placePiece(piece, pos.row, pos.col, isLight);
 		}
 
-		void CheckerBoard::highlight(int row, int col)
+		void CheckerBoard::highlight(
+			int row, int col, 
+			const guten::color::Color & bgColor1, 
+			const guten::color::Color & bgColor2)
 		{
 			for (int r = 0; r < cellSize.rows(); r++) {
 				for (int c = 0; c < cellSize.cols(); c++) {
 					int rr = 2 + cellSize.rows() * row + r;
 					int cc = 2 + cellSize.cols() * col + c;
 
-					(*this).at(rr, cc).color.setbg(row % 2 == col % 2 ? darkHighlight : lightHighlight);
+					(*this).at(rr, cc).color.setbg(row % 2 == col % 2 ? bgColor1 : bgColor2);
 				}
 			}
+		}
+
+		void CheckerBoard::highlight(int row, int col)
+		{
+			highlight(row, col, darkHighlight, lightHighlight);
 		}
 
 		void CheckerBoard::highlight(const Point & pos)
@@ -150,10 +158,10 @@ namespace guten
 			}
 
 			// -- Corners --
-			(*this).at(TOP_ROW, LEF_COL).color.setbg(darkCell);
-			(*this).at(TOP_ROW, RIG_COL).color.setbg(lightCell);
-			(*this).at(BOT_ROW, LEF_COL).color.setbg(lightCell);
-			(*this).at(BOT_ROW, RIG_COL).color.setbg(darkCell);
+			(*this).at(TOP_ROW, LEF_COL).color.setbg(lightCell);
+			(*this).at(TOP_ROW, RIG_COL).color.setbg(darkCell);
+			(*this).at(BOT_ROW, LEF_COL).color.setbg(darkCell);
+			(*this).at(BOT_ROW, RIG_COL).color.setbg(lightCell);
 		}
 	} // namespace board
 } // namespace guten

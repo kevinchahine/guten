@@ -49,6 +49,8 @@ namespace guten
 			void copyTo(Matrix & dst) const;
 			void copyTo(Matrix & dst, Point at) const;
 
+			void clear();
+
 		private:
 			std::unique_ptr<Impl> pImpl;
 		};

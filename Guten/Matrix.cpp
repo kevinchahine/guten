@@ -41,8 +41,47 @@ namespace guten
 			int nCols() const { return static_cast<int>(this->shape()[1]); }
 			Size size() const { return Size(nRows(), nCols()); }
 
+			void copyTo(Impl & dst);
+			void copyTo(Impl & dst, Point at);
+
+			void clear();
+
 			void print(size_t nTabs = 0, std::ostream & os = std::cout) const;
 		};
+
+		void Matrix::Impl::copyTo(Impl & dst)
+		{
+			const int ROW_LIMIT = min(this->nRows(), dst.nRows());
+			const int COL_LIMIT = min(this->nCols(), dst.nCols());
+
+			for (int row = 0; row < ROW_LIMIT; row++) {
+				for (int col = 0; col < COL_LIMIT; col++) {
+					dst.at(row, col) = this->at(row, col);
+				}
+			}
+		}
+
+		void Matrix::Impl::copyTo(Impl & dst, Point at)
+		{
+			const int ROW_LIMIT = min(this->nRows(), dst.nRows() - at.row);
+			const int COL_LIMIT = min(this->nCols(), dst.nCols() - at.col);
+
+			for (int row = 0; row < ROW_LIMIT; row++) {
+				for (int col = 0; col < COL_LIMIT; col++) {
+					dst.at(row + at.row, col + at.col) = this->at(row, col);
+				}
+			}
+		}
+
+		void Matrix::Impl::clear()
+		{
+			for (size_t row = 0; row < nRows(); row++) {
+				for (size_t col = 0; col < nCols(); col++) {
+					this->at(row, col).character = ' ';
+					this->at(row, col).color = guten::color::white;
+				}
+			}
+		}
 
 		void Matrix::Impl::print(size_t nTabs, std::ostream & os) const
 		{
@@ -140,26 +179,17 @@ namespace guten
 
 		void Matrix::copyTo(Matrix & dst) const
 		{
-			const int ROW_LIMIT = min(this->nRows(), dst.nRows());
-			const int COL_LIMIT = min(this->nCols(), dst.nCols());
-
-			for (int row = 0; row < ROW_LIMIT; row++) {
-				for (int col = 0; col < COL_LIMIT; col++) {
-					dst.at(row, col) = this->at(row, col);
-				}
-			}
+			pImpl->copyTo(*dst.pImpl);
 		}
 
 		void Matrix::copyTo(Matrix & dst, Point at) const
 		{
-			const int ROW_LIMIT = min(this->nRows(), dst.nRows() - at.row);
-			const int COL_LIMIT = min(this->nCols(), dst.nCols() - at.col);
+			pImpl->copyTo(*dst.pImpl, at);
+		}
 
-			for (int row = 0; row < ROW_LIMIT; row++) {
-				for (int col = 0; col < COL_LIMIT; col++) {
-					dst.at(row + at.row, col + at.col) = this->at(row, col);
-				}
-			}
+		void Matrix::clear()
+		{
+			pImpl->clear();
 		}
 	} // namespace core
 } // namespace guten

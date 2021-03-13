@@ -30,6 +30,8 @@ namespace guten
 
 			void placePiece(char piece, const Point & pos, bool isLight);
 
+			void highlight(int row, int col, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2);
+
 			void highlight(int row, int col);
 
 			void highlight(const Point & pos);
@@ -43,7 +45,7 @@ namespace guten
 
 			void drawRibbon();
 
-		protected:
+		public:
 			color::Color darkCell = color::green;
 			color::Color lightCell = color::brown;
 			color::Color darkHighlight = color::red;
@@ -53,6 +55,7 @@ namespace guten
 			color::Color darkBoarder = color::green;
 			color::Color lightBoarder = color::brown;
 
+		protected:
 			Size cellSize{ 3, 5 };
 		};
 	} // namespace boards
