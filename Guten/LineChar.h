@@ -31,7 +31,10 @@ namespace guten
 			// l = lines::right + lines::left;
 			// cout << l;		// prints horizontal line
 			LineChar operator+(const LineChar & other) const {
-				return this->m_value | other.m_value;
+				// get overlapping bits. We only care about 4 LSBs
+				///uint8_t overlap = this->m_value & other.m_value;	
+				///overlap = (overlap << 4);	// shift them to 4 MSBs
+				return this->m_value | other.m_value;/// | overlap;
 			}
 
 			// Adds a line component to the character
@@ -41,7 +44,10 @@ namespace guten
 			// l += lines::left;
 			// cout << l;		// prints horizontal line
 			LineChar operator+=(const LineChar & other) {
-				this->m_value = this->m_value | other.m_value;
+				/// get overlapping bits. We only care about 4 LSBs
+				///uint8_t overlap = this->m_value & other.m_value;
+				///overlap = (overlap << 4);	// shift them to 4 MSBs
+				this->m_value = this->m_value | other.m_value;/// | overlap;
 				return this->m_value;
 			}
 
@@ -51,7 +57,12 @@ namespace guten
 			// LineChar l = lines::cross - lines::up;
 			// cout << l;		// prints T-shaped line
 			LineChar operator-(const LineChar & other) const {
-				return this->m_value & ~other.m_value;
+				///uint8_t overlap = this->m_value & other.m_value;
+				///overlap = overlap & 0b1111'0000;
+
+				uint8_t temp = this->m_value & ~other.m_value;/// &~overlap;
+
+				return temp;
 			}
 
 			// Removes a line component from the character
@@ -82,6 +93,16 @@ namespace guten
 			template<typename T>
 			T as() const {
 				return static_cast<T>(m_value);
+			}
+
+			template<>
+			unsigned char as<unsigned char>() const {
+				return LINES[m_value];
+			}
+			
+			template<>
+				char as<char>() const {
+				return LINES[m_value];
 			}
 
 		protected:

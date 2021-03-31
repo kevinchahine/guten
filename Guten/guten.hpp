@@ -1,5 +1,8 @@
 #pragma once
 
+// --- bars ---
+#include "ProgressBar.h"
+
 // --- blocks ---
 #include "BlockChar.h"
 
@@ -16,6 +19,9 @@
 // --- lines ---
 #include "LineChar.h"
 
+// --- spinners ---
+#include "spinners.hpp"
+
 // --- draw ---
 #include "DrawFunctions.h"
 
@@ -25,3 +31,5 @@
 // --- Source ---
 #include "Point.h"
 #include "Size.h"
+
+#include "helpers.h"

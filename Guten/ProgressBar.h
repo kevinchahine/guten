@@ -7,7 +7,7 @@ namespace guten
 {
 	namespace bars
 	{
-		class ProgressBar : public guten::core::Matrix
+		class GUTEN_API ProgressBar : public guten::core::Matrix
 		{
 		public:
 			ProgressBar() = default;
@@ -21,6 +21,22 @@ namespace guten
 
 			void setPercent(float percent) { this->percent = percent; }
 			float getPercent() const { return this->percent; }
+
+			friend std::ostream & operator<<(std::ostream & os, const ProgressBar & bar)
+			{
+				int width = static_cast<int>(bar.percent / 10);
+
+				auto flags = os.flags();
+
+				os << std::setprecision(4) << bar.percent << "% ";
+
+				for (int i = 0; i < width; i++) {
+					os << '=';
+				}
+
+				os << '>';
+				return os;
+			}
 
 		private:
 			float percent = 0.0f;

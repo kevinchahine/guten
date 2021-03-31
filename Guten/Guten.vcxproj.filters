@@ -45,6 +45,9 @@
     <Filter Include="boarders">
       <UniqueIdentifier>{44bbb8de-1309-43e9-a451-04b392a35aa9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="spinners">
+      <UniqueIdentifier>{36cfc995-acd8-48ff-b060-114d07713fbc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -134,6 +137,21 @@
     <ClInclude Include="Boarder.h">
       <Filter>boarders</Filter>
     </ClInclude>
+    <ClInclude Include="SpinnerBase.h">
+      <Filter>spinners</Filter>
+    </ClInclude>
+    <ClInclude Include="spinners.hpp">
+      <Filter>spinners</Filter>
+    </ClInclude>
+    <ClInclude Include="LineSpinner.h">
+      <Filter>spinners</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatSpinner.h">
+      <Filter>spinners</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers.h">
+      <Filter>Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -216,6 +234,18 @@
     </ClCompile>
     <ClCompile Include="ProgressBar.cpp">
       <Filter>bars</Filter>
+    </ClCompile>
+    <ClCompile Include="SpinnerBase.cpp">
+      <Filter>spinners</Filter>
+    </ClCompile>
+    <ClCompile Include="LineSpinner.cpp">
+      <Filter>spinners</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatSpinner.cpp">
+      <Filter>spinners</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers.cpp">
+      <Filter>Special Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
