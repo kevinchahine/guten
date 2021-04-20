@@ -23,7 +23,7 @@ namespace guten
 			Size sizeOf1st = m_mats.front().size();
 
 			const int ROWS_TO_SHOW = m_mats.size() / m_gridCols + (m_mats.size() % m_gridCols > 0);
-			const int COLS_TO_SHOW = min(m_mats.size(), m_gridCols);
+			const int COLS_TO_SHOW = std::min(m_mats.size(), (size_t) m_gridCols);
 
 			Matrix mat{ 
 				static_cast<size_t>(ROWS_TO_SHOW * (sizeOf1st.rows() + 1)), 

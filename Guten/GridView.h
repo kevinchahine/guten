@@ -19,10 +19,10 @@ namespace guten
 		public:
 			void push(const core::Matrix & mat);
 
-			void setGridRows(int gridRows) { m_gridRows = max(gridRows, 1); }
+			void setGridRows(int gridRows) { m_gridRows = std::max(gridRows, 1); }
 			int getGridRows() const { return m_gridRows; }
 
-			void setGridCols(int gridCols) { m_gridCols = max(gridCols, 1); }
+			void setGridCols(int gridCols) { m_gridCols = std::max(gridCols, 1); }
 			int getGridCols() const { return m_gridCols; }
 
 			core::Matrix toMatrix() const;

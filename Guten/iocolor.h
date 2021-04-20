@@ -11,6 +11,7 @@
 #include <exception>
 
 //#ifdef WIN32
+#define NOMINMAX   
 #include <Windows.h>
 //#else
 // ... Something for linux
