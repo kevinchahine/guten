@@ -4,6 +4,48 @@ using namespace std;
 
 namespace examples
 {
+	namespace Character
+	{
+		void test()
+		{
+			using guten::core::Character;
+
+			cout << Character() << '\n'
+				<< Character(uint8_t('a')) << '\n'
+				<< Character(guten::lines::up + guten::lines::left) << '\n'
+				<< Character(guten::blocks::top) << '\n';
+			
+			Character c{ guten::lines::double_cross };
+			Character d{ c };
+
+			c = guten::lines::vertical;
+
+			cout << c << " should not equal " << d << '\n';
+
+			Character e(std::move(d));
+			cout << e << '\n';
+
+			d = e;
+
+			cout << d << '\n';
+
+			e = guten::blocks::left;
+			c = std::move(e);
+
+			cout << c << '\n';
+
+			d = guten::lines::horizontal;
+			cout << d + guten::lines::vertical << '\n';
+
+			cout << d + guten::blocks::bottom << '\n';
+
+			d = 'a';
+			cout << d + uint8_t(1) << '\n';
+
+
+		}
+	}
+
 	namespace bars
 	{
 		void progressBar()

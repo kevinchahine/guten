@@ -30,8 +30,8 @@ namespace guten
 				static_cast<size_t>(COLS_TO_SHOW * (sizeOf1st.cols() + 1)) };
 
 			for (int i = 0; i < m_mats.size(); i++) {
-				register int gridRow = i / m_gridCols;
-				register int gridCol = i % m_gridCols;
+				int gridRow = i / m_gridCols;
+				int gridCol = i % m_gridCols;
 
 				m_mats.at(i).copyTo(
 					mat, 

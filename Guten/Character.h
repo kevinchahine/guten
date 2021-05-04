@@ -10,12 +10,7 @@
 #include <iostream>
 #include <memory>
 
-#include <boost/variant.hpp>
-///namespace boost
-///{
-///	template<typename, typename, typename>
-///	class variant;
-///}
+#include <boost/variant/variant_fwd.hpp>
 
 namespace guten
 {
@@ -32,10 +27,10 @@ namespace guten
 			Character(const lines::LineChar & lineChar);
 			Character(const blocks::BlockChar & blockChar);
 			Character(const Character & rhs);
-			Character(Character &&) noexcept = default;
-			virtual ~Character() noexcept = default;
+			Character(Character &&) noexcept;
+			virtual ~Character() noexcept;
 			Character & operator=(const Character & rhs);
-			Character & operator=(Character &&) noexcept = default;
+			Character & operator=(Character &&) noexcept;
 
 			Character & operator=(uint8_t ch);
 			Character & operator=(const lines::LineChar & lineChar);
@@ -57,21 +52,12 @@ namespace guten
 			Character operator-(const lines::LineChar & lineChar) const;
 			Character operator-(const blocks::BlockChar & blockChar) const;
 
-			bool operator==(const Character & rhs) const { return false; }// TODO: fix this }
+			bool operator==(const Character & rhs) const; 
 
-			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs)
-			{
-				///os << rhs.m_value;	// Didn't work with std::variant (boost::variant only)
-				
-				//std::visit([&os](const auto &elem) { os << elem; }, rhs.m_value);
-
-				return os;
-			}
+			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs);
 
 		protected:
 			std::unique_ptr<variant_t> m_value;
 		};
 	} // namespace core
 } // namespace guten
-
-//GUTEN_API std::ostream & operator<<(std::ostream & os, const guten::core::Character & rhs);

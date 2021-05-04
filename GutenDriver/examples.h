@@ -8,6 +8,11 @@
 
 namespace examples
 {
+	namespace Character
+	{
+		void test();
+	}
+
 	namespace bars
 	{
 		void progressBar();
