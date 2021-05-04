@@ -7,9 +7,15 @@
 #include "LineChar.h"
 #include "BlockChar.h"
 
-#include <boost/variant.hpp>	// Break this down into only the headers that we need
-
 #include <iostream>
+#include <memory>
+
+#include <boost/variant.hpp>
+///namespace boost
+///{
+///	template<typename, typename, typename>
+///	class variant;
+///}
 
 namespace guten
 {
@@ -18,15 +24,17 @@ namespace guten
 		class GUTEN_API Character
 		{
 		public:
+			using variant_t = boost::variant<uint8_t, lines::LineChar, blocks::BlockChar>;
 
-			Character() = default;
-			Character(uint8_t ch) : m_value(ch) {};
-			Character(const lines::LineChar & lineChar) : m_value(lineChar) {};
-			Character(const blocks::BlockChar & blockChar) : m_value(blockChar) {};
-			Character(const Character &) = default;
+		public:
+			Character();
+			Character(uint8_t ch);
+			Character(const lines::LineChar & lineChar);
+			Character(const blocks::BlockChar & blockChar);
+			Character(const Character & rhs);
 			Character(Character &&) noexcept = default;
 			virtual ~Character() noexcept = default;
-			Character & operator=(const Character &) = default;
+			Character & operator=(const Character & rhs);
 			Character & operator=(Character &&) noexcept = default;
 
 			Character & operator=(uint8_t ch);
@@ -53,13 +61,15 @@ namespace guten
 
 			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs)
 			{
-				os << rhs.m_value;
+				///os << rhs.m_value;	// Didn't work with std::variant (boost::variant only)
 				
+				//std::visit([&os](const auto &elem) { os << elem; }, rhs.m_value);
+
 				return os;
 			}
 
 		protected:
-			boost::variant<uint8_t, lines::LineChar, blocks::BlockChar> m_value;
+			std::unique_ptr<variant_t> m_value;
 		};
 	} // namespace core
 } // namespace guten
