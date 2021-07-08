@@ -59,19 +59,20 @@ namespace guten
 			setcolor(hue.getcolor());
 		}
 
-		void Color::setAlpha(uint8_t alpha)
+		void Color::setAlpha(bool isSolidFg, bool isSolidBg)
 		{
-			this->alpha = alpha;
+			alpha[fgIndex] = isSolidFg;
+			alpha[bgIndex] = isSolidBg;
 		}
 
-		void Color::setfgAlpha(uint8_t fgAlpha)
+		void Color::setfgAlpha(bool fgAlpha)
 		{
-			this->alpha = this->alpha & 0b0000'1111 & (fgAlpha << 4);
+			alpha[fgIndex] = fgAlpha;
 		}
 
-		void Color::setbgAlpha(uint8_t bgAlpha)
+		void Color::setbgAlpha(bool bgAlpha)
 		{
-			this->alpha = this->alpha & 0b1111'0000 & bgAlpha;
+			alpha[bgIndex] = bgAlpha;
 		}
 
 		Color::type Color::getfg() const
@@ -91,7 +92,15 @@ namespace guten
 
 		Color Color::inverted() const
 		{
-			return Color(calcBackground(hue), calcForeground(hue));
+			Color ret = (*this);
+			
+			ret.setcolor(Color(calcBackground(hue), calcForeground(hue)));
+				
+			bool temp = ret.alpha[fgIndex];
+			ret.alpha[fgIndex] = ret.alpha[bgIndex];
+			ret.alpha[bgIndex] = temp;
+
+			return ret;
 		}
 
 		Color Color::negative() const

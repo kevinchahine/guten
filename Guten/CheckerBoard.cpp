@@ -60,7 +60,7 @@ namespace guten
 			const guten::color::Color & bgColor2)
 		{
 			(*this).at(row, col).color.setbg(row % 2 == col % 2 ? bgColor1 : bgColor2);
-			(*this).at(row, col).color.setbgAlpha(0b1111);
+			(*this).at(row, col).color.setbgAlpha(1);
 		}
 
 		void CheckerBoard::highlight(int row, int col)
@@ -73,7 +73,7 @@ namespace guten
 			highlight(pos.row, pos.col);
 		}
 
-		void CheckerBoard::highlight(std::bitset<64> bitboard, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2)
+		void CheckerBoard::highlight(const std::bitset<64> & bitboard, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2)
 		{
 			for (int row = 0; row < 8; row++) {
 				for (int col = 0; col < 8; col++) {
@@ -87,7 +87,7 @@ namespace guten
 			}
 		}
 
-		void CheckerBoard::highlight(std::bitset<64> bitboard)
+		void CheckerBoard::highlight(const std::bitset<64> & bitboard)
 		{
 			highlight(bitboard, darkHighlight, lightHighlight);
 		}
@@ -128,50 +128,7 @@ namespace guten
 
 			draw::rectangle(img, guten::Point{ 0, 0 }, img.size(), color, true);
 		}
-
-		void CheckerBoard::drawCells(core::Matrix & img) const
-		{
-			for (int cellRow = 0; cellRow < this->nRows(); cellRow++) {
-				for (int cellCol = 0; cellCol < this->nCols(); cellCol++) {
-
-					const Point origin{
-						2 + cellRow * cellSize.height,
-						2 + cellCol * cellSize.width
-					};
-
-					// --- Draw Background Color ---
-					color::Color base = (cellRow % 2 == cellCol % 2 ? lightCell : darkCell);
-					color::Color highlight = this->at(cellRow, cellCol).color;
-					color::Color color = base | highlight;
-
-					for (int row = 0; row < cellSize.height; row++) {
-						for (int col = 0; col < cellSize.width; col++) {
-
-							const int r = origin.row + row;
-							const int c = origin.col + col;
-
-							img.at(r, c).color.setbg(color);
-						}
-					}
-
-					// --- Draw Piece ---
-
-					const Point piecePos{
-						origin.row + cellSize.height / 2,
-						origin.col + cellSize.width / 2 };
-
-					const colored_char_t & piece = this->at(cellRow, cellCol);
-					colored_char_t & dstCell = img.at(piecePos);
-
-					if (piece.character != ' ') {
-						dstCell.character = piece.character;
-						dstCell.color.setfg(piece.color.getfg());
-						///dstCell.color.setbg(piece.color.negative().getfg());
-					}
-				}
-			}
-		}
-
+		
 		void CheckerBoard::drawRibbon(core::Matrix & img) const
 		{
 			// --- Draw Coordinate Ribbons ---
@@ -225,6 +182,48 @@ namespace guten
 			img.at(TOP_ROW, RIG_COL).color.setbg(darkCell);
 			img.at(BOT_ROW, LEF_COL).color.setbg(darkCell);
 			img.at(BOT_ROW, RIG_COL).color.setbg(lightCell);
+		}
+
+		void CheckerBoard::drawCells(core::Matrix & img) const
+		{
+			for (int cellRow = 0; cellRow < this->nRows(); cellRow++) {
+				for (int cellCol = 0; cellCol < this->nCols(); cellCol++) {
+
+					const Point origin{
+						2 + cellRow * cellSize.height,
+						2 + cellCol * cellSize.width
+					};
+
+					// --- Draw Background Color ---
+					color::Color base = (cellRow % 2 == cellCol % 2 ? lightCell : darkCell);
+					color::Color highlight = this->at(cellRow, cellCol).color.inverted();
+					color::Color color = base | highlight;
+					
+					for (int row = 0; row < cellSize.height; row++) {
+						for (int col = 0; col < cellSize.width; col++) {
+
+							const int r = origin.row + row;
+							const int c = origin.col + col;
+
+							img.at(r, c).color.setbg(color);
+						}
+					}
+
+					// --- Draw Piece ---
+
+					const Point piecePos{
+						origin.row + cellSize.height / 2,
+						origin.col + cellSize.width / 2 };
+
+					const colored_char_t & piece = this->at(cellRow, cellCol);
+					colored_char_t & dstCell = img.at(piecePos);
+
+					if (piece.character != ' ') {
+						dstCell.character = piece.character;
+						dstCell.color.setfg(piece.color.getfg());
+					}
+				}
+			}
 		}
 	} // namespace board
 } // namespace guten

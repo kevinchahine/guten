@@ -38,9 +38,9 @@ namespace guten
 
 			void highlight(const Point & pos);
 
-			void highlight(std::bitset<64> bitboard, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2);
+			void highlight(const std::bitset<64> & bitboard, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2);
 			
-			void highlight(std::bitset<64> bitboard);
+			void highlight(const std::bitset<64> & bitboard);
 
 			void clearHighlights();
 
@@ -53,9 +53,9 @@ namespace guten
 		protected:
 			void drawBoarder(core::Matrix & img) const;
 
-			void drawCells(core::Matrix & img) const;
-
 			void drawRibbon(core::Matrix & img) const;
+
+			void drawCells(core::Matrix & img) const;
 
 		public:
 			color::Color darkCell = color::green;

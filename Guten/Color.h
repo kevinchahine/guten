@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <bitset>
 
 #include "GutenExports.h"
 
@@ -66,11 +67,22 @@ namespace guten
 			Color(const Color &) = default;
 			Color(Color &&) noexcept = default;
 			virtual ~Color() noexcept = default;
-			Color & operator=(const Color &) = default;
+			Color & operator=(const Color & other) {
+				this->hue = other.hue;
+
+				this->alpha = other.alpha;
+
+				return *this;
+			}
 			Color & operator=(Color &&) noexcept = default;
 
-			Color operator|(const Color & lhs) {
-				return (this->hue & this->alpha) | (lhs.hue & lhs.alpha);
+			Color operator|(const Color & rhs) {
+				Color ret;
+
+				ret.setfg(rhs.isFgSolid() ? rhs.getfg() : this->getfg());
+				ret.setbg(rhs.isBgSolid() ? rhs.getbg() : this->getbg());
+
+				return ret;
 			}
 
 			void setfg(type hue);
@@ -79,13 +91,15 @@ namespace guten
 			void setbg(const Color & hue);
 			void setcolor(type hue);
 			void setcolor(const Color & hue);
-			void setAlpha(uint8_t alpha);
-			void setfgAlpha(uint8_t fgAlpha);
-			void setbgAlpha(uint8_t bgAlpha);
+			void setAlpha(bool isSolidFg, bool isSolidBg);
+			void setfgAlpha(bool isSolid);
+			void setbgAlpha(bool isSolid);
 
 			type getfg() const;
 			type getbg() const;
 			type getcolor() const;
+			bool isFgSolid() const { return alpha[fgIndex]; }
+			bool isBgSolid() const { return alpha[bgIndex]; }
 
 			Color inverted() const;
 			Color negative() const;
@@ -95,14 +109,13 @@ namespace guten
 			type hue;
 
 			// Opacity of color (split between foreground and background
-			// 0  - 0b0000 - transparent
-			// 8  - 0b1000 - even blend
-			// 15 - 0b1111 - solid
-			// MSB			LSB
-			// 7 6 5 4  3 2 1 0
-			// [4-bits][4-bits]
-			//    fg      bg
-			uint8_t alpha = 0b1111'1111;
+			// bit 1 - foreground
+			// bit 0 - background
+			// 0 means transparent
+			// 1 means solid color
+			std::bitset<2> alpha = 0b11;
+			const size_t fgIndex = 1;
+			const size_t bgIndex = 0;
 		};	// class color
 
 		// --- Constant Global Colors ---
