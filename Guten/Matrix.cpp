@@ -1,10 +1,11 @@
 #include "pch.h"
 #include "Matrix.h"
+
 #include <stdint.h>
+#include <string>
+#include <algorithm>	// for std::min()
 
 #include <boost/multi_array.hpp>
-
-#include <algorithm>	// for std::min()
 
 using namespace std;
 
@@ -28,8 +29,37 @@ namespace guten
 			Impl & operator=(const Impl &) = default;
 			Impl & operator=(Impl &&) noexcept = default;
 
-			colored_char_t & at(size_t row, size_t col) { return (*this)[row][col]; }
-			const colored_char_t & at(size_t row, size_t col) const { return (*this)[row][col]; }
+			colored_char_t & at(size_t row, size_t col) 
+			{ 
+#ifdef _DEBUG
+				if (row > nRows()) {
+					string msg = "Row coordinate is out of bounds at " + std::to_string(row);
+					throw std::exception(msg.c_str());
+				}
+				if (col > nCols()) {
+					string msg = "Col coordinate is out of bounds at " + std::to_string(col);
+					throw std::exception(msg.c_str());
+				}
+#endif // _DEBUG
+
+				return (*this)[row][col]; 
+			}
+
+			const colored_char_t & at(size_t row, size_t col) const 
+			{ 
+#ifdef _DEBUG
+				if (row > nRows()) {
+					string msg = "Row coordinate is out of bounds at " + std::to_string(row);
+					throw std::exception(msg.c_str());
+				}
+				if (col > nCols()) {
+					string msg = "Col coordinate is out of bounds at " + std::to_string(col);
+					throw std::exception(msg.c_str());
+				}
+#endif // _DEBUG
+
+				return (*this)[row][col];
+			}
 
 			inline void resize(size_t nRows, size_t nCols) {
 				multi_array_t::extent_gen extents;

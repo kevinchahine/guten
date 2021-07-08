@@ -6,6 +6,25 @@ namespace guten
 {
 	namespace color
 	{
+		Color::type negatives[] = {
+			Color::WHITE,		// BLACK
+			Color::CYAN,		// BLUE	???
+			Color::RED,			// GREEN
+			Color::BLUE,		// CYAN	???
+			Color::GREEN,		// RED
+			Color::YELLOW,		// MAGENTA
+			Color::MAGENTA,		// YELLOW
+			Color::GRAY,		// LIGHTGRAY
+			Color::LIGHTGRAY,	// GRAY
+			Color::LIGHTCYAN,	// LIGHTBLUE	???
+			Color::LIGHTRED,	// LIGHTGREEN
+			Color::LIGHTBLUE,	// LIGHTCYAN	???
+			Color::LIGHTGREEN,	// LIGHTRED
+			Color::BROWN,		// LIGHTMAGENTA
+			Color::LIGHTMAGENTA,// BROWN
+			Color::BLACK,		// WHITE
+		};
+
 		void Color::setfg(type hue)
 		{
 			type bg = calcBackground(this->hue);
@@ -40,6 +59,21 @@ namespace guten
 			setcolor(hue.getcolor());
 		}
 
+		void Color::setAlpha(uint8_t alpha)
+		{
+			this->alpha = alpha;
+		}
+
+		void Color::setfgAlpha(uint8_t fgAlpha)
+		{
+			this->alpha = this->alpha & 0b0000'1111 & (fgAlpha << 4);
+		}
+
+		void Color::setbgAlpha(uint8_t bgAlpha)
+		{
+			this->alpha = this->alpha & 0b1111'0000 & bgAlpha;
+		}
+
 		Color::type Color::getfg() const
 		{
 			return calcForeground(this->hue);
@@ -58,6 +92,11 @@ namespace guten
 		Color Color::inverted() const
 		{
 			return Color(calcBackground(hue), calcForeground(hue));
+		}
+
+		Color Color::negative() const
+		{
+			return negatives[hue];
 		}
 
 		// --- Externs ---

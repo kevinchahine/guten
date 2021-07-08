@@ -67,8 +67,8 @@ namespace examples
 		void checkerBoard()
 		{
 			guten::boards::CheckerBoard cb;
-
-			cb.drawBackground();
+			cb.placePiece('K', 3, 4, true);
+			cb.placePiece('Q', 3, 5, false);
 
 			cb.print();
 
@@ -79,6 +79,14 @@ namespace examples
 			cb2.print();
 		}
 	} // namespace boards
+
+	namespace color
+	{
+		void showAll()
+		{
+			guten::color::printAllColors();
+		}
+	} // namespace color
 
 	namespace core
 	{

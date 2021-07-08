@@ -76,6 +76,14 @@ namespace guten
 				return this->m_value;
 			}
 
+			bool operator==(const LineChar & other) const {
+				return m_value == other.m_value;
+			}
+
+			bool operator!=(const LineChar & other) const {
+				return m_value != other.m_value;
+			}
+
 			friend std::ostream & operator<<(std::ostream & os, const LineChar & lhs) {
 				os << LINES[lhs.m_value];
 

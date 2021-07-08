@@ -22,7 +22,7 @@ namespace guten
 			// Alias the data used to store color values
 			using type = uint8_t;
 
-			// --- Enums ---
+			// --- Constants ---
 			static const type BLACK = 0;
 			static const type BLUE = 1;
 			static const type GREEN = 2;
@@ -70,7 +70,7 @@ namespace guten
 			Color & operator=(Color &&) noexcept = default;
 
 			Color operator|(const Color & lhs) {
-				return this->hue | lhs.hue;
+				return (this->hue & this->alpha) | (lhs.hue & lhs.alpha);
 			}
 
 			void setfg(type hue);
@@ -79,16 +79,30 @@ namespace guten
 			void setbg(const Color & hue);
 			void setcolor(type hue);
 			void setcolor(const Color & hue);
+			void setAlpha(uint8_t alpha);
+			void setfgAlpha(uint8_t fgAlpha);
+			void setbgAlpha(uint8_t bgAlpha);
 
 			type getfg() const;
 			type getbg() const;
 			type getcolor() const;
 
 			Color inverted() const;
+			Color negative() const;
 
 		protected:
 			// Stores shade of color
 			type hue;
+
+			// Opacity of color (split between foreground and background
+			// 0  - 0b0000 - transparent
+			// 8  - 0b1000 - even blend
+			// 15 - 0b1111 - solid
+			// MSB			LSB
+			// 7 6 5 4  3 2 1 0
+			// [4-bits][4-bits]
+			//    fg      bg
+			uint8_t alpha = 0b1111'1111;
 		};	// class color
 
 		// --- Constant Global Colors ---

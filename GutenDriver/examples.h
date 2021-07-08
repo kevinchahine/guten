@@ -23,6 +23,11 @@ namespace examples
 		void checkerBoard();
 	} // namespace boards
 
+	namespace color
+	{
+		void showAll();
+	} // namespace color
+
 	namespace core
 	{
 		void matrix();

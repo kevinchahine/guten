@@ -50,7 +50,8 @@ namespace guten
 			Character operator-(const lines::LineChar & lineChar) const;
 			Character operator-(const blocks::BlockChar & blockChar) const;
 
-			bool operator==(const Character & rhs) const; 
+			bool operator==(const Character & rhs) const;
+			bool operator!=(const Character & rhs) const { return !(*this == rhs); }
 
 			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs);
 

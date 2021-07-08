@@ -178,14 +178,9 @@ namespace guten
 
 			bool operator==(const Impl & rhs) const
 			{
-#ifdef _DEBUG
-				throw std::exception("operator==() is not complete.");
-#endif // _DEBUG
-
-				//return m_value->apply_visitor(boost::equal_comp);
-				return false;// *m_value == *rhs.m_value;
+				return *m_value == *rhs.m_value;
 			}
-
+			
 			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Impl & rhs)
 			{
 				os << *rhs.m_value;
@@ -309,7 +304,7 @@ namespace guten
 
 		Character & Character::operator+=(const lines::LineChar & lineChar)
 		{
-			(*this->pImpl) += lineChar;
+			(*this->pImpl) = (*this->pImpl) + lineChar;
 
 			return (*this);
 		}

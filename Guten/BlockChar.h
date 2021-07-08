@@ -21,6 +21,13 @@ namespace guten
 			BlockChar & operator=(const BlockChar &) = default;
 			BlockChar & operator=(BlockChar &&) noexcept = default;
 
+			bool operator==(const BlockChar & other) const {
+				return m_value == other.m_value;
+			}
+			bool operator!=(const BlockChar & other) const {
+				return m_value != other.m_value;
+			}
+
 			friend std::ostream & operator<<(std::ostream & os, const BlockChar & lhs) {
 				os << BLOCK_CHARS[lhs.m_value];
 
