@@ -62,6 +62,48 @@ namespace examples
 		}
 	} // namespace bars
 
+	namespace boards
+	{
+		void checkerBoard()
+		{
+			guten::boards::CheckerBoard cb;
+
+			cb.drawBackground();
+
+			cb.print();
+
+			guten::boards::CheckerBoard cb2;
+
+			cb2 = cb;
+
+			cb2.print();
+		}
+	} // namespace boards
+
+	namespace core
+	{
+		void matrix()
+		{
+			guten::core::Matrix img;
+
+			img.resize(10, 20);
+
+			guten::draw::rectangle(img, guten::Point{ 2, 2 }, guten::Size{ 5, 9 }, guten::color::blue, true);
+			guten::draw::rectangle(img, guten::Point{ 4, 4 }, guten::Size{ 5, 9 }, guten::color::yellow, true);
+			guten::draw::rectangle(img, guten::Point{ 0, 0 }, img.size(), guten::color::green);
+
+			img.print();
+
+			guten::core::Matrix img2;
+			
+			img2.resize(5, 32);
+
+			img2 = img;
+
+			img2.print(10);
+		}
+	} // namespace core
+
 	namespace spinners
 	{
 		void flatSpinner()

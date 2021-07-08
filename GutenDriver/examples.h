@@ -18,6 +18,16 @@ namespace examples
 		void progressBar();
 	} // namespace bars
 
+	namespace boards
+	{
+		void checkerBoard();
+	} // namespace boards
+
+	namespace core
+	{
+		void matrix();
+	} // namespace core
+
 	namespace spinners
 	{
 		void flatSpinner();
