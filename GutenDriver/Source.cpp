@@ -4,13 +4,13 @@ using namespace std;
 
 int main()
 {
-	//examples::Character::test();
-	//examples::bars::progressBar();
+	examples::Character::test();
+	examples::bars::progressBar();
 	examples::boards::checkerBoard();
-	//examples::core::matrix();
-	//examples::spinners::flatSpinner();
-	//examples::spinners::lineSpinner();
-	//examples::rectangle();
+	examples::core::matrix();
+	examples::spinners::flatSpinner();
+	examples::spinners::lineSpinner();
+	examples::rectangle();
 
 	//this_thread::sleep_for(chrono::seconds(1));
 	cin.get();

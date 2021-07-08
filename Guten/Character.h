@@ -10,8 +10,6 @@
 #include <iostream>
 #include <memory>
 
-#include <boost/variant/variant_fwd.hpp>
-
 namespace guten
 {
 	namespace core
@@ -19,7 +17,7 @@ namespace guten
 		class GUTEN_API Character
 		{
 		public:
-			using variant_t = boost::variant<uint8_t, lines::LineChar, blocks::BlockChar>;
+			class Impl;
 
 		public:
 			Character();
@@ -57,7 +55,7 @@ namespace guten
 			GUTEN_API friend std::ostream & operator<<(std::ostream & os, const Character & rhs);
 
 		protected:
-			std::unique_ptr<variant_t> m_value;
+			std::unique_ptr<Impl> pImpl;
 		};
 	} // namespace core
 } // namespace guten
