@@ -24,9 +24,18 @@
     <ClCompile Include="examples.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="examples_checker_board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="examples.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="termcolor.txt">
+      <Filter>Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="examples_checker_board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

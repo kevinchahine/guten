@@ -45,17 +45,21 @@ namespace guten
 			void clearHighlights();
 
 			// Draws the CheckerBoard on a Matrix and returns it.
-			// Matrix can then be printed to even copied onto another Matrix.
+			// Matrix can then be printed or even copied onto another Matrix.
 			core::Matrix draw() const;
 
-			void print(size_t nTabs = 0, std::ostream & os = std::cout) const;
+			core::Matrix drawMini() const;
+
+			void print(size_t nTabs = 0, std::ostream& os = std::cout) const;
+
+			void printMini(size_t nTabs = 0, std::ostream& os = std::cout) const;
 
 		protected:
 			void drawBoarder(core::Matrix & img) const;
 
-			void drawRibbon(core::Matrix & img) const;
+			void drawRibbon(core::Matrix & img, const Size& imgCellSize) const;
 
-			void drawCells(core::Matrix & img) const;
+			void drawCells(core::Matrix & img, const Size& imgCellSize) const;
 
 		public:
 			color::Color darkCell = color::green;

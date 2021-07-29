@@ -1,0 +1,7 @@
+Use termcolor to support 24-bit true color
+
+https://termcolor.readthedocs.io/
+
+And Yes its in vcpkg !!!!! :)
+
+https://devblogs.microsoft.com/commandline/24-bit-color-in-the-windows-console/
