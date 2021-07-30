@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "DrawFunctions.h"
 
-#include <algorithm>
-
 using namespace std;
 using namespace guten::core;
 
@@ -84,6 +82,16 @@ namespace guten
 				mat(lowerRigth).character = lines::up + lines::left;
 				mat(lowerRigth).color = color;
 			}
+		}
+
+		template<> GUTEN_API void rectangle(core::Matrix& mat, const Point& p1, const Point& p2, const lines::LineChar& character, const color::Color& color)
+		{
+			rectangle(mat, p1, p2, color, false);
+		}
+
+		template<> GUTEN_API void rectangle(core::Matrix& mat, const Point& p1, const Size& size, const lines::LineChar& character, const color::Color& color)
+		{
+			rectangle(mat, p1, size, color, false);
 		}
 
 		void putText(core::Matrix & mat, const std::string & text, const Point & origin, const color::Color & color)

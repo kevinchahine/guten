@@ -1,0 +1,6 @@
+=== Guten ===
+=== Matrix ===
+
+Add submatrix references. That way a small section of a matrix can be accessed as if it was an individual matrix.
+Kind of like string_view.
+

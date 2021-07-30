@@ -27,6 +27,15 @@
     <ClCompile Include="examples_checker_board.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="examples_boarders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="examples_glyphs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="examples_draw_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="examples.h">
@@ -38,9 +47,27 @@
     <ClInclude Include="examples_checker_board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="examples_boarders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="examples_glyphs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="examples_draw_functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ProgressBars.txt">
+      <Filter>Notes</Filter>
+    </Text>
+    <Text Include="Letters.txt">
+      <Filter>Notes</Filter>
+    </Text>
+    <Text Include="DrawFunctions.txt">
+      <Filter>Notes</Filter>
+    </Text>
+    <Text Include="Matrix.txt">
       <Filter>Notes</Filter>
     </Text>
   </ItemGroup>

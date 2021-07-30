@@ -1,0 +1,18 @@
+=== Guten ===
+=== Letters ===
+
+Draw multi character letters:
+
+ex:
+	#     #  #######  #		   #	   #######
+	#     #  #		  #		   #	   #	 #
+	#     #  #		  #		   #	   #	 #
+	#######  ######	  #		   #	   #	 #
+	#     #  #		  #		   #	   #	 #
+	#     #  #		  #		   #	   #     #
+	#     #  #######  #######  ####### #######
+
+Could also be done with line and block characters
+
+
+

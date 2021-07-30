@@ -41,7 +41,7 @@ namespace guten
 			Character operator+(uint8_t ch) const;
 			Character operator+(const lines::LineChar & lineChar) const;
 			Character operator+(const blocks::BlockChar & blockChar) const;
-
+			
 			Character & operator+=(uint8_t ch);
 			Character & operator+=(const lines::LineChar & lineChar);
 			Character & operator+=(const blocks::BlockChar & blockChar);

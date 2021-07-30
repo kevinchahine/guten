@@ -188,6 +188,7 @@
     <ClInclude Include="helpers.h" />
     <ClInclude Include="HorizontalView.h" />
     <ClInclude Include="iocolor.h" />
+    <ClInclude Include="Glyphs.h" />
     <ClInclude Include="LinearLayout.h" />
     <ClInclude Include="LineChar.h" />
     <ClInclude Include="LineSpinner.h" />
@@ -222,6 +223,7 @@
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="HorizontalView.cpp" />
     <ClCompile Include="iocolor.cpp" />
+    <ClCompile Include="Glyphs.cpp" />
     <ClCompile Include="LinearLayout.cpp" />
     <ClCompile Include="LineChar.cpp" />
     <ClCompile Include="LineSpinner.cpp" />

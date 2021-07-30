@@ -136,15 +136,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="examples.cpp" />
+    <ClCompile Include="examples_boarders.cpp" />
     <ClCompile Include="examples_checker_board.cpp" />
+    <ClCompile Include="examples_draw_functions.cpp" />
+    <ClCompile Include="examples_glyphs.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="examples.h" />
+    <ClInclude Include="examples_boarders.h" />
     <ClInclude Include="examples_checker_board.h" />
+    <ClInclude Include="examples_draw_functions.h" />
+    <ClInclude Include="examples_glyphs.h" />
     <ClInclude Include="termcolor.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="DrawFunctions.txt" />
+    <Text Include="Letters.txt" />
+    <Text Include="Matrix.txt" />
     <Text Include="ProgressBars.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -14,6 +14,11 @@ namespace guten
 			m_mats.push_back(mat);
 		}
 
+		void GridView::push(core::Matrix&& mat)
+		{
+			m_mats.push_back(std::move(mat));
+		}
+
 		Matrix GridView::toMatrix() const
 		{
 			if (m_mats.empty()) {
