@@ -34,6 +34,12 @@ namespace guten
 
 			core::Matrix toMatrix() const;
 
+			const core::Matrix& front() const { return m_mats.front(); }
+			core::Matrix& front() { return m_mats.front(); }
+
+			const core::Matrix& back() const { return m_mats.back(); }
+			core::Matrix& back() { return m_mats.back(); }
+
 		protected:
 			std::vector<core::Matrix> m_mats;
 
