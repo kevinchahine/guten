@@ -36,6 +36,9 @@
     <ClCompile Include="examples_draw_functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="examples_progress_bar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="examples.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="examples_draw_functions.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="examples_progress_bar.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -158,6 +158,9 @@
     <ClInclude Include="Glyphs.h">
       <Filter>glyphs</Filter>
     </ClInclude>
+    <ClInclude Include="BlockBar.h">
+      <Filter>bars</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -255,6 +258,9 @@
     </ClCompile>
     <ClCompile Include="Glyphs.cpp">
       <Filter>glyphs</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockBar.cpp">
+      <Filter>bars</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

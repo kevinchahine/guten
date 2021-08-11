@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlignedView.h" />
+    <ClInclude Include="BlockBar.h" />
     <ClInclude Include="BlockChar.h" />
     <ClInclude Include="Boarder.h" />
     <ClInclude Include="Character.h" />
@@ -207,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlignedView.cpp" />
+    <ClCompile Include="BlockBar.cpp" />
     <ClCompile Include="BlockChar.cpp" />
     <ClCompile Include="Boarder.cpp" />
     <ClCompile Include="Character.cpp" />

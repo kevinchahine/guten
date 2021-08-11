@@ -29,7 +29,7 @@ namespace guten
 			}
 
 			friend std::ostream & operator<<(std::ostream & os, const BlockChar & lhs) {
-				os << BLOCK_CHARS[lhs.m_value];
+				os << lhs.getCh();
 
 				return os;
 			}
@@ -39,6 +39,8 @@ namespace guten
 
 			//uint8_t & value() { return m_value; }
 			const uint8_t & value() const { return m_value; }
+
+			char getCh() const { return BLOCK_CHARS[m_value]; }
 
 			template<typename T>
 			T as() const {

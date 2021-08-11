@@ -46,22 +46,6 @@ namespace examples
 		}
 	}
 
-	namespace bars
-	{
-		void progressBar()
-		{
-			guten::bars::ProgressBar pb;
-
-			for (float f = 0.0f; f < 100.0f; f += 5.0f) {
-				pb.setPercent(f);
-				cout << pb;
-
-				this_thread::sleep_for(chrono::milliseconds(200));
-				guten::eraseLine(cout);
-			}
-		}
-	} // namespace bars
-
 	namespace boards
 	{
 		void checkerBoard()

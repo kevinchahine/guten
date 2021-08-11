@@ -140,6 +140,7 @@
     <ClCompile Include="examples_checker_board.cpp" />
     <ClCompile Include="examples_draw_functions.cpp" />
     <ClCompile Include="examples_glyphs.cpp" />
+    <ClCompile Include="examples_progress_bar.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,7 @@
     <ClInclude Include="examples_checker_board.h" />
     <ClInclude Include="examples_draw_functions.h" />
     <ClInclude Include="examples_glyphs.h" />
+    <ClInclude Include="examples_progress_bar.h" />
     <ClInclude Include="termcolor.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -13,11 +13,6 @@ namespace examples
 		void test();
 	}
 
-	namespace bars
-	{
-		void progressBar();
-	} // namespace bars
-
 	namespace boards
 	{
 		void checkerBoard();
