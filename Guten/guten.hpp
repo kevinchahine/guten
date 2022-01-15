@@ -1,35 +1,40 @@
 #pragma once
 
 // --- bars ---
-#include "ProgressBar.h"
+#include "bars/BlockBar.h"
+#include "bars/ProgressBar.h"
 
 // --- blocks ---
-#include "BlockChar.h"
+#include "blocks/BlockChar.h"
 
-// --- color ---
-#include "Color.h"
-#include "ColorHelpers.h"
-#include "iocolor.h"
-
-// --- core ---
-#include "Character.h"
-#include "ColoredChar.h"
-#include "Matrix.h"
-
-// --- lines ---
-#include "LineChar.h"
-
-// --- spinners ---
-#include "spinners.hpp"
-
-// --- draw ---
-#include "DrawFunctions.h"
+// --- boarders ---
+#include "boarders/Boarder.h"
 
 // --- boards ---
-#include "CheckerBoard.h"
+#include "boards/CheckerBoard.h"
 
-// --- Source ---
-#include "Point.h"
-#include "Size.h"
+// --- color ---
+#include "color/Color.h"
+#include "color/ColorHelpers.h"
+#include "color/iocolor.h"
 
-#include "helpers.h"
+// --- core ---
+#include "core/Character.h"
+#include "core/ColoredChar.h"
+#include "core/helpers.h"
+#include "core/Matrix.h"
+#include "core/Point.h"
+#include "core/Size.h"
+
+// --- draw ---
+#include "draw/DrawFunctions.h"
+
+// --- glyphs ---
+#include "glyphs/Glyphs.h"
+#include "glyphs/Letter.h"
+
+// --- lines ---
+#include "lines/LineChar.h"
+
+// --- spinners ---
+#include "spinners/spinners.hpp"

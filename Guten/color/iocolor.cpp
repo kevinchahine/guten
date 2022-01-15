@@ -5,9 +5,9 @@ namespace guten
 {
 	namespace color
 	{
+		GUTEN_API WORD currColor = Color::calcColor(Color::WHITE, Color::BLACK);
 		// TODO: Linux: Fix this to make it cross platform compatible 
 		#ifdef _WIN32
-		GUTEN_API WORD currColor = Color::calcColor(Color::WHITE, Color::BLACK);
 		GUTEN_API HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 		GUTEN_API CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
 		#endif // _WIN32

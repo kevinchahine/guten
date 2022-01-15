@@ -7,6 +7,7 @@ namespace guten
 {
 	namespace glyphs
 	{
+		/*
 		class GUTEN_API Letter
 		{
 		public:
@@ -228,7 +229,7 @@ namespace guten
 		public:
 
 		};
-
+		*/
 	} // namespace letters
 } // namespace guten
 
