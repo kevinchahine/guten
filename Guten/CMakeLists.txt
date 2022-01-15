@@ -1,80 +1,126 @@
 cmake_minimum_required(VERSION 3.20)
 
-set (HEADER_FILES
-	AlignedView.h
-	BlockBar.h
-	BlockChar.h
-	Boarder.h
-	Character.h
-	CheckerBoard.h
-	ColoredChar.h
-	Color.h
-	ColorHelpers.h
-	ConstrainedLayout.h
-	DrawFunctions.h
-	FlatSpinner.h
-	framework.h
-	Glyphs.h
-	GridView.h
-	GutenExports.h
-	helpers.h
-	HorizontalView.h
-	iocolor.h
-	Letter.h
-	LinearLayout.h
-	LineChar.h
-	LineSpinner.h
-	Matrix.h
-	pch.h
-	Point.h
-	ProgressBar.h
-	RelativeLayout.h
-	Size.h
-	SpinnerBase.h
-	TextView.h
-	VerticalView.h
-	ViewGroup.h
-	View.h
+project (guten)
+
+# --- Get name of each source file ---
+
+set (BARS
+	bars/BlockBar.cpp
+	bars/BlockBar.h
+	bars/ProgressBar.cpp
+	bars/ProgressBar.h
 )
 
-set (SOURCE_FILES 
-	AlignedView.cpp
-	BlockBar.cpp
-	BlockChar.cpp
-	Boarder.cpp
-	Character.cpp
-	CheckerBoard.cpp
-	Color.cpp
-	ColoredChar.cpp
-	ColorHelpers.cpp
-	ConstrainedLayout.cpp
-	dllmain.cpp
-	DrawFunctions.cpp
-	FlatSpinner.cpp
-	Glyphs.cpp
-	GridView.cpp
-	GutenExports.cpp
-	helpers.cpp
-	HorizontalView.cpp
-	iocolor.cpp
-	Letter.cpp
-	LinearLayout.cpp
-	LineChar.cpp
-	LineSpinner.cpp
-	Matrix.cpp
-	pch.cpp
-	Point.cpp
-	ProgressBar.cpp
-	RelativeLayout.cpp
-	Size.cpp
-	SpinnerBase.cpp
-	TextView.cpp
-	VerticalView.cpp
-	View.cpp
-	ViewGroup.cpp
+set (BLOCKS
+	blocks/BlockChar.cpp
+	blocks/BlockChar.h
 )
+
+set (BOARDERS
+	boarders/Boarder.cpp
+	boarders/Boarder.h
+)
+
+set (BOARDS
+	boards/CheckerBoard.cpp
+	boards/CheckerBoard.h
+)
+
+set (COLOR
+	color/Color.cpp
+	color/Color.h
+	color/ColorHelpers.cpp
+	color/ColorHelpers.h
+	color/iocolor.cpp
+	color/iocolor.h
+)
+
+set (CORE
+	core/Character.cpp
+	core/Character.h
+	core/ColoredChar.cpp
+	core/ColoredChar.h
+	core/helpers.cpp
+	core/helpers.h
+	core/Matrix.cpp
+	core/Matrix.h
+	core/Point.cpp
+	core/Point.h
+	core/Size.cpp
+	core/Size.h
+)
+
+set (DRAW 
+	draw/DrawFunctions.cpp
+	draw/DrawFunctions.h
+)
+
+set (GLYPHS
+	glyphs/Glyphs.cpp
+	glyphs/Glyphs.h
+	glyphs/Letter.cpp
+	glyphs/Letter.h
+)
+
+set (LINES
+	lines/LineChar.cpp
+	lines/LineChar.h
+)
+
+set (SPINNERS
+	spinners/FlatSpinner.cpp
+	spinners/FlatSpinner.h
+	spinners/LineSpinner.cpp
+	spinners/LineSpinner.h
+	spinners/SpinnerBase.cpp
+	spinners/SpinnerBase.h
+	spinners/spinners.hpp
+)
+
+set (VIEW
+	view/AlignedView.cpp
+	view/AlignedView.h
+	view/ConstrainedLayout.cpp
+	view/ConstrainedLayout.h
+	view/GridView.cpp
+	view/GridView.h
+	view/HorizontalView.cpp
+	view/HorizontalView.h
+	view/LinearLayout.cpp
+	view/LinearLayout.h
+	view/RelativeLayout.cpp
+	view/RelativeLayout.h
+	view/TextView.cpp
+	view/TextView.h
+	view/VerticalView.cpp
+	view/VerticalView.h
+	view/View.cpp
+	view/ViewGroup.cpp
+	view/ViewGroup.h
+	view/View.h
+)
+
+set (OTHER_FILES
+	framework.h
+	guten.hpp
+	GutenExports.cpp
+	GutenExports.h
+	pch.cpp
+	pch.h
+)
+
+# --- Combine Source files into a library ---
 
 add_library(guten STATIC 
-	${HEADER_FILES}
-	${SOURCE_FILES}
+	${BARS}
+	${BLOCKS}
+	${BOARDERS}
+	${BOARDS}
+	${COLOR}
+	${CORE}
+	${DRAW}
+	${GLYPHS}
+	${LINES}
+	${SPINNERS}
+	${VIEW}
 )

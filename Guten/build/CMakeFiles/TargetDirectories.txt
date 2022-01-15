@@ -1,3 +1,0 @@
-/home/kevin/code_dir_link/AI/forge/guten/Guten/build/CMakeFiles/rebuild_cache.dir
-/home/kevin/code_dir_link/AI/forge/guten/Guten/build/CMakeFiles/edit_cache.dir
-/home/kevin/code_dir_link/AI/forge/guten/Guten/build/CMakeFiles/guten.dir
