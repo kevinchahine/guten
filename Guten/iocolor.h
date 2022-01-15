@@ -10,12 +10,8 @@
 #include <stack>
 #include <exception>
 
-//#ifdef WIN32
 #define NOMINMAX   
-#include <Windows.h>
-//#else
-// ... Something for linux
-//#endif
+#include "framework.h"
 
 namespace guten
 {
@@ -48,7 +44,9 @@ namespace guten
 			friend std::ostream& operator<<(std::ostream& os, const setcolor& rhs)
 			{
 				if (currColor != rhs.newColor) {
+					#ifdef _WIN32	// TODO: Linux: Make this cross-platform compatible
 					SetConsoleTextAttribute(h, rhs.newColor);
+					#endif // _WIN32
 					currColor = rhs.newColor;
 				}
 
@@ -100,7 +98,8 @@ namespace guten
 			friend std::ostream& operator<<(std::ostream& os, const pop& pop)
 			{
 				if (colorStack.empty()) {
-					throw std::exception{ "Color Stack is empty. Make sure push() and pop() manipulators are balanced." };
+					// throw std::exception("...");	// <-- string overload only works with MSVC
+					throw std::runtime_error("Color Stack is empty. Make sure push() and pop() manipulators are balanced.");
 				}
 				os << setcolor(colorStack.top());
 				colorStack.pop();

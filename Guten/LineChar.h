@@ -103,15 +103,15 @@ namespace guten
 				return static_cast<T>(m_value);
 			}
 
-			template<>
-			unsigned char as<unsigned char>() const {
-				return LINES[m_value];
-			}
-			
-			template<>
-				char as<char>() const {
-				return LINES[m_value];
-			}
+			//////////////////template<>
+			//////////////////unsigned char as<unsigned char>() const {
+			//////////////////	return LINES[m_value];
+			//////////////////}
+			//////////////////
+			//////////////////template<>
+			//////////////////char as<char>() const {
+			//////////////////	return LINES[m_value];
+			//////////////////}
 
 		protected:
 			// Bitwise value indicating direction of each line

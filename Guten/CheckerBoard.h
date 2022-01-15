@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GutenExports.h"
-#include "color.h"
+#include "Color.h"
 #include "Matrix.h"
 
 namespace guten
