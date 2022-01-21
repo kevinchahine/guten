@@ -71,7 +71,7 @@
     <ClInclude Include="framework.h">
       <Filter>Special Files</Filter>
     </ClInclude>
-    <ClInclude Include="GutenExports.h">
+    <ClInclude Include="../GutenExports.h">
       <Filter>Special Files</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
@@ -95,7 +95,7 @@
     <ClInclude Include="DrawFunctions.h">
       <Filter>draw</Filter>
     </ClInclude>
-    <ClInclude Include="guten.hpp">
+    <ClInclude Include="../Guten.hpp">
       <Filter>Special Files</Filter>
     </ClInclude>
     <ClInclude Include="CheckerBoard.h">
@@ -169,7 +169,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Special Files</Filter>
     </ClCompile>
-    <ClCompile Include="GutenExports.cpp">
+    <ClCompile Include="../GutenExports.cpp">
       <Filter>Special Files</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">

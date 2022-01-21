@@ -1,9 +1,7 @@
-#pragma once
-
 #include "examples_boarders.h"
 
-#include "Guten/Matrix.h"
-#include "Guten/Boarder.h"
+//////////#include <../Guten/core/Matrix.h>
+//////////#include <../Guten/boarders/Boarder.h>
 
 namespace examples
 {
@@ -11,7 +9,7 @@ namespace examples
 	{
 		void simple()
 		{
-			guten::core::Matrix img;
+			//////////#guten::core::Matrix img;
 
 
 		}

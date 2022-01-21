@@ -184,8 +184,8 @@
     <ClInclude Include="FlatSpinner.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GridView.h" />
-    <ClInclude Include="guten.hpp" />
-    <ClInclude Include="GutenExports.h" />
+    <ClInclude Include="../Guten.hpp" />
+    <ClInclude Include="../GutenExports.h" />
     <ClInclude Include="helpers.h" />
     <ClInclude Include="HorizontalView.h" />
     <ClInclude Include="iocolor.h" />
@@ -221,7 +221,7 @@
     <ClCompile Include="DrawFunctions.cpp" />
     <ClCompile Include="FlatSpinner.cpp" />
     <ClCompile Include="GridView.cpp" />
-    <ClCompile Include="GutenExports.cpp" />
+    <ClCompile Include="../GutenExports.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="HorizontalView.cpp" />
     <ClCompile Include="iocolor.cpp" />

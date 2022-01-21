@@ -3,7 +3,7 @@
 
 #include "../pch.h"
 #include "framework.h"
-#include "GutenExports.h"
+#include "../GutenExports.h"
 
 
 // This is an example of an exported variable

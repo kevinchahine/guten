@@ -109,6 +109,24 @@ set (OTHER_FILES
 	pch.h
 )
 
+# --- 3rd Party Libraries ---
+
+find_package(Boost REQUIRED COMPONENTS
+	variant
+)
+
+message(STATUS "--- Boost ---")
+message(STATUS "Include dirs ${Boost_INCLUDE_DIRS}")
+message(STATUS "Boost libraries ${Boost_LIBRARIES}")
+
+target_link_libraries(guten PUBLIC
+	Boost::variant
+)
+
+target_include_directories(guten PUBLIC
+	${BOOST_INCLUDE_DIRS}
+)
+
 # --- Combine Source files into a library ---
 
 add_library(guten STATIC 
