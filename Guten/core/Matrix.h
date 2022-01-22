@@ -2,8 +2,6 @@
 
 #include "../GutenExports.h"
 
-#include "../color/iocolor.h"
-#include "../color/Color.h"
 #include "../core/ColoredChar.h"
 #include "../core/Character.h"
 #include "../core/Point.h"

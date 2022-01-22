@@ -4,6 +4,8 @@
 #include "../color/Color.h"
 #include "../core/Matrix.h"
 
+#include "../termcolor/termcolor.hpp"
+
 namespace guten
 {
 	namespace boards
@@ -32,13 +34,13 @@ namespace guten
 
 			void placePieces(char piece, std::bitset<64> bitboard, bool isLight);
 
-			void highlight(int row, int col, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2);
+			void highlight(int row, int col, const termcolor::Color & bgColor1, const termcolor::Color & bgColor2);
 
 			void highlight(int row, int col);
 
 			void highlight(const Point & pos);
 
-			void highlight(const std::bitset<64> & bitboard, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2);
+			void highlight(const std::bitset<64> & bitboard, const termcolor::Color & bgColor1, const termcolor::Color & bgColor2);
 			
 			void highlight(const std::bitset<64> & bitboard);
 
@@ -62,15 +64,15 @@ namespace guten
 			void drawCells(core::Matrix & img, const Size& imgCellSize) const;
 
 		public:
-			color::Color darkCell = color::green;
-			color::Color lightCell = color::brown;
-			color::Color darkHighlight = color::red;
-			color::Color lightHighlight = color::lightred;
-			color::Color darkPiece = color::black;
-			color::Color lightPiece = color::yellow;
-			color::Color darkBoarder = color::green;
-			color::Color lightBoarder = color::brown;
-
+			termcolor::Color darkCell = guten::color::green;
+			termcolor::Color lightCell = guten::color::brown;
+			termcolor::Color darkHighlight = guten::color::red;
+			termcolor::Color lightHighlight = guten::color::lightred;
+			termcolor::Color darkPiece = guten::color::black;
+			termcolor::Color lightPiece = guten::color::yellow;
+			termcolor::Color darkBoarder = guten::color::green;
+			termcolor::Color lightBoarder = guten::color::brown;
+		
 		protected:
 			Size cellSize{ 3, 5 };
 		};

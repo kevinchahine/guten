@@ -25,7 +25,7 @@ namespace guten
 			uint16_t m_width = 7;	// Width of glyph in characters
 			uint16_t m_height = 7;	// Height of glyph in characters
 
-			color::Color m_color;	// Color of glyph
+			termcolor::Color m_color;	// Color of glyph
 		};
 
 		class GUTEN_API A : public Letter

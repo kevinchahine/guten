@@ -2,6 +2,7 @@
 #include "examples_checker_board.h"
 #include "examples_draw_functions.h"
 #include "examples_progress_bar.h"
+#include "../Guten/color/Color.h"
 
 #define NOMINMAX	// Prevents pollution of min/max macros from #include "windows.h"
 #include "../Guten/termcolor/termcolor.hpp"
@@ -26,8 +27,11 @@ int main()
 	    << termcolor::crossed   << "crossed message"    << termcolor::reset << endl
 	    << "default message"    << endl;
 
-	termcolor::Color<char> c(240,35, 64);
-	termcolor::OnColor<char> bg(0, 255, 255);
+	termcolor::Color color = guten::color::green;
+	cout << color << " This color is green " << endl;
+
+	termcolor::ColorFG c(240,35, 64);
+	termcolor::ColorBG bg(0, 255, 255);
 	cout << termcolor::blink << c << bg << "--- This is where its at ---" << termcolor::reset << endl;
 
 	examples::checker_board::test();

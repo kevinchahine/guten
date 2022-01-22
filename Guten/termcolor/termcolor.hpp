@@ -236,40 +236,6 @@ namespace termcolor
         return stream;
     }
 
-    // KC: vvvvv
-    template<typename CharT = char>
-    class Color {
-    public:
-        Color(uint8_t red, uint8_t green, uint8_t blue) :
-            red(red),
-            green(green),
-            blue(blue) {}
-        Color() = default;
-        Color(const Color &) = default;
-        Color(Color &&) noexcept = default;
-        ~Color() noexcept = default;
-        Color & operator=(const Color &) = default;
-        Color & operator=(Color &&) noexcept = default;
-
-        friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const Color & color)
-        {
-            if (_internal::is_colorized(stream))
-            {
-            #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
-                stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
-            #elif defined(TERMCOLOR_USE_WINDOWS_API)
-            #endif
-            }
-            return stream;
-        }
-    
-    public:
-        uint8_t red = 255;
-        uint8_t green = 255;
-        uint8_t blue = 255;
-    };
-    // KC: ^^^^^
-
     template <uint8_t r, uint8_t g, uint8_t b, typename CharT>
     std::basic_ostream<CharT>& on_color(std::basic_ostream<CharT>& stream)
     {
@@ -282,40 +248,6 @@ namespace termcolor
         }
         return stream;
     }
-
-    // KC: vvvvv
-    template<typename CharT = char>
-    class OnColor {
-    public:
-        OnColor(uint8_t red, uint8_t green, uint8_t blue) :
-            red(red),
-            green(green),
-            blue(blue) {}
-        OnColor() = default;
-        OnColor(const OnColor &) = default;
-        OnColor(OnColor &&) noexcept = default;
-        ~OnColor() noexcept = default;
-        OnColor & operator=(const OnColor &) = default;
-        OnColor & operator=(OnColor &&) noexcept = default;
-
-        friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const OnColor & color)
-        {
-            if (_internal::is_colorized(stream))
-            {
-            #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
-                stream << "\033[48;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
-            #elif defined(TERMCOLOR_USE_WINDOWS_API)
-            #endif
-            }
-            return stream;
-        }
-    
-    public:
-        uint8_t red = 255;
-        uint8_t green = 255;
-        uint8_t blue = 255;
-    };
-    // KC: ^^^^^
 
     template <typename CharT>
     std::basic_ostream<CharT>& grey(std::basic_ostream<CharT>& stream)
@@ -993,6 +925,216 @@ namespace termcolor
 
     } // namespace _internal
 
+    // KC: vvvvv
+    // Base class for color objects. Stores colors as an object to be used and modified later.
+    // object can modify terminal color by streaming it.
+    // ex:
+    //  ColorFG c()
+    // Stores color as red, green, blue and alpha channels.
+    // This class is not intended to be used in code except as a base class of ColorFG and ColorBG.
+    // Use ColorFG, ColorBG and class Color instead.
+    // Color (and objects of derived classes) applies alpha bleeding automatically
+    //  on calls to operator+().
+    // ex:
+    // ColorFG c1(255, 000, 000, 128);      // Red with 50% opacity 
+    // ColorFG c2(000, 000, 255, 128);      // Blue with 50% opacity
+    // ColorFG c3 = c1 + c2;                // 
+    // This will result in the blending of both c1 and c2 
+    class Color {
+    public:
+        Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255) :
+            red(red),
+            green(green),
+            blue(blue),
+            alpha(alpha) {}
+        Color() = default;
+        Color(const Color &) = default;
+        Color(Color &&) noexcept = default;
+        ~Color() noexcept = default;
+        Color & operator=(const Color &) = default;
+        Color & operator=(Color &&) noexcept = default;
+
+        Color operator+(const Color & rhs) const {
+            // Cast to int to prevent over/underflow
+            int leftR = this->red;
+            int leftG = this->green;
+            int leftB = this->blue;
+            int leftA = this->alpha;
+
+            // Cast to int to prevent over/underflow
+            int rightR = rhs.red;
+            int rightG = rhs.green;
+            int rightB = rhs.blue;
+            int rightA = rhs.alpha;
+
+            // Perform Alpha Blending on each color channel
+            int resultR = (leftR * leftA + rightR * (255 - rightA)) / 255;
+            int resultG = (leftG * leftA + rightG * (255 - rightA)) / 255;
+            int resultB = (leftB * leftA + rightB * (255 - rightA)) / 255;
+
+            // Combine results
+            Color result{ 
+                uint8_t(resultR), 
+                uint8_t(resultG), 
+                uint8_t(resultB), 
+                uint8_t(255) 
+            };
+
+            // And return
+            return result;
+        }
+
+        Color & operator+=(const Color & rhs) {
+            *this = *this + rhs;  // Call Color::operator+ overload
+
+            return *this;
+        }
+
+        template<typename CharT>
+        friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const Color & color)
+        {
+            // Change foreground color
+            if (_internal::is_colorized(stream))
+            {
+            #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
+                stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
+            #elif defined(TERMCOLOR_USE_WINDOWS_API)
+            #endif
+            }
+            return stream;
+        }
+
+    public:
+        uint8_t red = 255;
+        uint8_t green = 255;
+        uint8_t blue = 255;
+        uint8_t alpha = 255;
+    };
+
+    class ColorFG : public Color {
+    public:
+        ColorFG() : Color(255, 255, 255, 255) {}
+        ColorFG(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255) :
+            Color(red, green, blue, alpha) {}
+        ColorFG(const Color & color) : Color(color) {}
+        ColorFG(const ColorFG &) = default;
+        ColorFG(ColorFG &&) noexcept = default;
+        ~ColorFG() noexcept = default;
+        ColorFG & operator=(const ColorFG &) = default;
+        ColorFG & operator=(ColorFG &&) noexcept = default;
+        ColorFG & operator=(const Color & color) { *this = color; return *this; }
+
+        template<typename CharT>
+        friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const ColorFG & color)
+        {
+            if (_internal::is_colorized(stream))
+            {
+            #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
+                stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
+            #elif defined(TERMCOLOR_USE_WINDOWS_API)
+            #endif
+            }
+            return stream;
+        }
+    };
+
+    class ColorBG : public Color {
+    public:
+        ColorBG() : Color(0, 0, 0, 255) {}
+        ColorBG(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha = 255) :
+            Color(red, green, blue, alpha) {}
+        ColorBG(const Color & color) : Color(color) {}
+        ColorBG(const ColorBG &) = default;
+        ColorBG(ColorBG &&) noexcept = default;
+        ~ColorBG() noexcept = default;
+        ColorBG & operator=(const ColorBG &) = default;
+        ColorBG & operator=(ColorBG &&) noexcept = default;
+        ColorBG & operator=(const Color & color) { *this = color; return *this; }
+
+        template<typename CharT>
+        friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const ColorBG & color)
+        {
+            if (_internal::is_colorized(stream))
+            {
+            #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
+                stream << "\033[48;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
+            #elif defined(TERMCOLOR_USE_WINDOWS_API)
+            #endif
+            }
+            return stream;
+        }
+    };
+
+    class ColorFBG {
+    public:
+        ColorFBG() = default;
+        ColorFBG(uint8_t redFG, uint8_t greenFG, uint8_t blueFG, uint8_t redBG, uint8_t greenBG, uint8_t blueBG) :
+            foreground(redFG, greenFG, blueFG),
+            background(redBG, greenBG, blueBG) {}        
+        ColorFBG(uint8_t redFG, uint8_t greenFG, uint8_t blueFG, uint8_t alphaFG = 255) :
+            foreground(redFG, greenFG, blueFG, alphaFG),
+            background() {}
+        ColorFBG(const Color & foreground, const Color & background = ColorBG{}) :
+            foreground(foreground),
+            background(background) {}
+        ColorFBG(const ColorFBG &) = default;
+        ColorFBG(ColorFBG &&) noexcept = default;
+        ~ColorFBG() noexcept = default;
+        ColorFBG & operator=(const ColorFBG &) = default;
+        ColorFBG & operator=(ColorFBG &&) noexcept = default;
+
+        ColorFBG operator+(const ColorFBG & rhs) const {
+            ColorFG f = this->foreground + rhs.foreground;
+            ColorBG b = this->background + rhs.background;
+
+            return ColorFBG {};//{ f, b };
+        }
+
+        ColorFBG & operator+=(const ColorFBG & rhs) {
+            this->foreground += rhs.foreground;
+            this->background += rhs.background;
+
+            return *this;
+        }
+
+        ColorFBG inverted() const {
+            return ColorFBG{ background, foreground };  // Swap FG and BG
+        }
+
+        template<typename CharT>
+        friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const ColorFBG & color)
+        {
+            if (_internal::is_colorized(stream))
+            {
+            #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
+                stream << color.foreground << color.background;
+            #elif defined(TERMCOLOR_USE_WINDOWS_API)
+            #endif
+            }
+            return stream;
+        }
+
+    public:
+        ColorFG foreground;    // foreground color
+        ColorBG background;    // background color
+    };
+
+    template <typename CharT>
+    std::basic_ostream<CharT>& push(std::basic_ostream<CharT>& stream)
+    {
+        // TODO: Fill this in
+
+        return stream;
+    }
+
+    template <typename CharT>
+    std::basic_ostream<CharT>& pop(std::basic_ostream<CharT>& stream)
+    {
+        // TODO: Fill this in
+
+        return stream;
+    }
+    // KC: ^^^^^
 } // namespace termcolor
 
 

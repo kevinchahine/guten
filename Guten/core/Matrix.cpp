@@ -119,7 +119,7 @@ namespace guten
 			const size_t N_COLS = this->shape()[1];
 
 			for (size_t row = 0; row < N_ROWS; row++) {
-				os << color::push();
+				os << termcolor::push;
 
 				for (size_t tab = 0; tab < nTabs; tab++) {
 					os << "    ";
@@ -129,7 +129,7 @@ namespace guten
 					os << (*this)[row][col];
 				}
 
-				os << color::pop() << '\n';
+				os << termcolor::pop << '\n';
 			}
 		}
 

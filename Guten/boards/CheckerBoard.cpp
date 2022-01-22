@@ -3,6 +3,8 @@
 #include "../color/Color.h"
 #include "../draw/DrawFunctions.h"
 
+#include "../termcolor/termcolor.hpp"
+
 using namespace guten::core;
 using namespace std;
 
@@ -31,8 +33,8 @@ namespace guten
 		void CheckerBoard::placePiece(char piece, int row, int col, bool isLight)
 		{
 			(*this).at(row, col).character = piece;
-			(*this).at(row, col).color.setfg(isLight ? lightPiece : darkPiece);
-			(*this).at(row, col).color.setfgAlpha(0b1111);
+			(*this).at(row, col).color.foreground = (isLight ? lightPiece : darkPiece);
+			// (*this).at(row, col).color.setfgAlpha(0b1111);
 		}
 
 		void CheckerBoard::placePiece(char piece, const Point & pos, bool isLight)
@@ -56,11 +58,11 @@ namespace guten
 
 		void CheckerBoard::highlight(
 			int row, int col, 
-			const guten::color::Color & bgColor1, 
-			const guten::color::Color & bgColor2)
+			const termcolor::Color & bgColor1, 
+			const termcolor::Color & bgColor2)
 		{
-			(*this).at(row, col).color.setbg(row % 2 == col % 2 ? bgColor1 : bgColor2);
-			(*this).at(row, col).color.setbgAlpha(1);
+			(*this).at(row, col).color.background = (row % 2 == col % 2 ? bgColor1 : bgColor2);
+			(*this).at(row, col).color.background.alpha = 255;
 		}
 
 		void CheckerBoard::highlight(int row, int col)
@@ -73,7 +75,7 @@ namespace guten
 			highlight(pos.row, pos.col);
 		}
 
-		void CheckerBoard::highlight(const std::bitset<64> & bitboard, const guten::color::Color & bgColor1, const guten::color::Color & bgColor2)
+		void CheckerBoard::highlight(const std::bitset<64> & bitboard, const termcolor::Color & bgColor1, const termcolor::Color & bgColor2)
 		{
 			for (int row = 0; row < 8; row++) {
 				for (int col = 0; col < 8; col++) {
@@ -96,7 +98,7 @@ namespace guten
 		{
 			for (size_t row = 0; row < nRows(); row++) {
 				for (size_t col = 0; col < nCols(); col++) {
-					(*this).at(row, col).color.setbgAlpha(0);
+					(*this).at(row, col).color.background.alpha = 0;
 				}
 			}
 		}
@@ -145,7 +147,7 @@ namespace guten
 
 		void CheckerBoard::drawBoarder(core::Matrix & img) const
 		{
-			color::Color color{ lightBoarder, darkBoarder };
+			termcolor::Color color{ lightBoarder };//, darkBoarder };
 
 			draw::rectangle(img, guten::Point{ 0, 0 }, img.size(), color, true);
 		}
@@ -160,49 +162,49 @@ namespace guten
 
 			// -- TOP and BOTTOM --
 			for (int cellCol = 0; cellCol < this->nCols(); cellCol++) {
-				color::Color topColor{ (cellCol % 2 ? lightCell : darkCell) };
-				color::Color botColor{ (cellCol % 2 ? darkCell : lightCell) };
+				termcolor::Color topColor{ (cellCol % 2 ? lightCell : darkCell) };
+				termcolor::Color botColor{ (cellCol % 2 ? darkCell : lightCell) };
 
 				for (int col = 0; col < imgCellSize.width; col++) {
 					const int c = 2 + cellCol * imgCellSize.width + col;
 
-					img.at(TOP_ROW, c).color.setbg(topColor);
-					img.at(BOT_ROW, c).color.setbg(botColor);
+					img.at(TOP_ROW, c).color.background = topColor;
+					img.at(BOT_ROW, c).color.background = botColor;
 				}
 
 				// - Place Letter -
 				const int c = 2 + cellCol * imgCellSize.width + (imgCellSize.width / 2);
 				img.at(TOP_ROW, c).character = 'A' + cellCol;
-				img.at(TOP_ROW, c).color.setfg(botColor);
+				img.at(TOP_ROW, c).color.foreground = botColor;
 				img.at(BOT_ROW, c).character = 'A' + cellCol;
-				img.at(BOT_ROW, c).color.setfg(topColor);
+				img.at(BOT_ROW, c).color.foreground = topColor;
 			}
 
 			// -- LEFT and RIGHT --
 			for (int cellRow = 0; cellRow < this->nRows(); cellRow++) {
-				color::Color lefColor{ (cellRow % 2 ? lightCell : darkCell) };
-				color::Color rigColor{ (cellRow % 2 ? darkCell : lightCell) };
+				termcolor::Color lefColor{ (cellRow % 2 ? lightCell : darkCell) };
+				termcolor::Color rigColor{ (cellRow % 2 ? darkCell : lightCell) };
 
 				for (int row = 0; row < imgCellSize.height; row++) {
 					const int r = 2 + cellRow * imgCellSize.height + row;
 
-					img.at(r, LEF_COL).color.setbg(lefColor);
-					img.at(r, RIG_COL).color.setbg(rigColor);
+					img.at(r, LEF_COL).color.background = lefColor;
+					img.at(r, RIG_COL).color.background = rigColor;
 				}
 
 				// - Place Letter -
 				const int r = 2 + cellRow * imgCellSize.height + (imgCellSize.height / 2);
 				img.at(r, LEF_COL).character = '8' - cellRow;
-				img.at(r, LEF_COL).color.setfg(rigColor);
+				img.at(r, LEF_COL).color.foreground = rigColor;
 				img.at(r, RIG_COL).character = '8' - cellRow;
-				img.at(r, RIG_COL).color.setfg(lefColor);
+				img.at(r, RIG_COL).color.foreground = lefColor;
 			}
 
 			// -- Corners --
-			img.at(TOP_ROW, LEF_COL).color.setbg(lightCell);
-			img.at(TOP_ROW, RIG_COL).color.setbg(darkCell);
-			img.at(BOT_ROW, LEF_COL).color.setbg(darkCell);
-			img.at(BOT_ROW, RIG_COL).color.setbg(lightCell);
+			img.at(TOP_ROW, LEF_COL).color.background = lightCell;
+			img.at(TOP_ROW, RIG_COL).color.background = darkCell;
+			img.at(BOT_ROW, LEF_COL).color.background = darkCell;
+			img.at(BOT_ROW, RIG_COL).color.background = lightCell;
 		}
 
 		void CheckerBoard::drawCells(core::Matrix & img, const Size& imgCellSize) const
@@ -216,9 +218,9 @@ namespace guten
 					};
 
 					// --- Draw Background Color ---
-					color::Color base = (cellRow % 2 == cellCol % 2 ? lightCell : darkCell);
-					color::Color highlight = this->at(cellRow, cellCol).color.inverted();
-					color::Color color = base | highlight;
+					termcolor::Color base = (cellRow % 2 == cellCol % 2 ? lightCell : darkCell);
+					termcolor::Color highlight = this->at(cellRow, cellCol).color.background;
+					termcolor::Color color = base + highlight;
 					
 					for (int row = 0; row < imgCellSize.height; row++) {
 						for (int col = 0; col < imgCellSize.width; col++) {
@@ -226,7 +228,7 @@ namespace guten
 							const int r = origin.row + row;
 							const int c = origin.col + col;
 
-							img.at(r, c).color.setbg(color);
+							img.at(r, c).color.background = color;
 						}
 					}
 
@@ -241,7 +243,7 @@ namespace guten
 
 					if (piece.character != ' ') {
 						dstCell.character = piece.character;
-						dstCell.color.setfg(piece.color.getfg());
+						dstCell.color.foreground = piece.color.foreground;
 					}
 				}
 			}

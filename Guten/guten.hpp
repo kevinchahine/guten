@@ -16,7 +16,6 @@
 // --- color ---
 #include "color/Color.h"
 #include "color/ColorHelpers.h"
-#include "color/iocolor.h"
 
 // --- core ---
 #include "core/Character.h"

@@ -8,7 +8,7 @@ namespace guten
 {
 	namespace draw
 	{
-		GUTEN_API void horizontalLine(Matrix& mat, const Point & p1, size_t width, const color::Color & color, bool doubleLines)
+		GUTEN_API void horizontalLine(Matrix& mat, const Point & p1, size_t width, const termcolor::Color & color, bool doubleLines)
 		{
 			const auto & HORIZONTAL = (doubleLines ? lines::double_horizontal : lines::horizontal);
 
@@ -18,7 +18,7 @@ namespace guten
 			}
 		}
 
-		GUTEN_API void verticalLine(Matrix& mat, const Point & p1, size_t height, const color::Color & color, bool doubleLines)
+		GUTEN_API void verticalLine(Matrix& mat, const Point & p1, size_t height, const termcolor::Color & color, bool doubleLines)
 		{
 			const auto & VERTICAL = (doubleLines ? lines::double_vertical : lines::vertical);
 
@@ -28,7 +28,7 @@ namespace guten
 			}
 		}
 
-		GUTEN_API void rectangle(Matrix& mat, const Point & p1, const Point & p2, const color::Color & color, bool doubleLines)
+		GUTEN_API void rectangle(Matrix& mat, const Point & p1, const Point & p2, const termcolor::Color & color, bool doubleLines)
 		{
 			Point origin{
 				min(p1.row, p2.row),
@@ -43,7 +43,7 @@ namespace guten
 			rectangle(mat, origin, size, color, doubleLines);
 		}
 
-		GUTEN_API void rectangle(Matrix& mat, const Point & origin, const Size & size, const color::Color & color, bool doubleLines)
+		GUTEN_API void rectangle(Matrix& mat, const Point & origin, const Size & size, const termcolor::Color & color, bool doubleLines)
 		{
 			Point lowerLeft = Point{ origin.row + size.height - 1, origin.col };
 			Point upperRight = Point{ origin.row, origin.col + size.width - 1 };
@@ -84,17 +84,17 @@ namespace guten
 			}
 		}
 
-		template<> GUTEN_API void rectangle(core::Matrix& mat, const Point& p1, const Point& p2, const lines::LineChar& character, const color::Color& color)
+		GUTEN_API void rectangle(core::Matrix& mat, const Point& p1, const Point& p2, const lines::LineChar& character, const termcolor::Color& color)
 		{
 			rectangle(mat, p1, p2, color, false);
 		}
 
-		template<> GUTEN_API void rectangle(core::Matrix& mat, const Point& p1, const Size& size, const lines::LineChar& character, const color::Color& color)
+		GUTEN_API void rectangle(core::Matrix& mat, const Point& p1, const Size& size, const lines::LineChar& character, const termcolor::Color& color)
 		{
 			rectangle(mat, p1, size, color, false);
 		}
 
-		void putText(core::Matrix & mat, const std::string & text, const Point & origin, const color::Color & color)
+		void putText(core::Matrix & mat, const std::string & text, const Point & origin, const termcolor::Color & color)
 		{
 			for (int i = 0; i < text.size(); i++) {
 				auto & elem = mat.at(origin.row, origin.col + i);
