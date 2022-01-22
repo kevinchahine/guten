@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.20)
 set(PROJECT_NAME "GutenDriver")
 project(${PROJECT_NAME})
 
+add_subdirectory(Guten)
+
 # --- Specify Header Files ---
 set(SOURCE_FILES
 	${PROJECT_NAME}/Source.cpp
@@ -37,13 +39,10 @@ add_executable(${PROJECT_NAME}
 
 # --- Link Libraries ---
 target_link_libraries(${PROJECT_NAME} PUBLIC
-	#guten
-	# Boost::variant
+	Guten
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-	#guten
 	../Guten/
-	# ${BOOST_INCLUDE_DIRS}
 )
 

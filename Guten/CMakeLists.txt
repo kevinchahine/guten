@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
-project (guten)
+set(LIBRARY_NAME "Guten")
+project (${LIBRARY_NAME})
 
 # --- Get name of each source file ---
 
@@ -112,24 +113,24 @@ set (OTHER_FILES
 # --- 3rd Party Libraries ---
 
 find_package(Boost REQUIRED COMPONENTS
-	variant
+	#variant
 )
 
 message(STATUS "--- Boost ---")
 message(STATUS "Include dirs ${Boost_INCLUDE_DIRS}")
 message(STATUS "Boost libraries ${Boost_LIBRARIES}")
 
-target_link_libraries(guten PUBLIC
-	Boost::variant
-)
+#target_link_libraries(${LIBRARY_NAME} PUBLIC
+#	#Boost::variant
+#)
 
-target_include_directories(guten PUBLIC
-	${BOOST_INCLUDE_DIRS}
-)
+#target_include_directories(${LIBRARY_NAME} PUBLIC
+#	${BOOST_INCLUDE_DIRS}
+#)
 
 # --- Combine Source files into a library ---
 
-add_library(guten STATIC 
+add_library(${LIBRARY_NAME} STATIC 
 	${BARS}
 	${BLOCKS}
 	${BOARDERS}

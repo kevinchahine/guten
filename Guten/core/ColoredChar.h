@@ -4,6 +4,7 @@
 
 #include "../color/Color.h"
 #include "../color/iocolor.h"
+#include "../termcolor/termcolor.hpp"
 
 namespace guten
 {

@@ -29,8 +29,8 @@ int main()
 	termcolor::Color<char> c(240,35, 64);
 	termcolor::OnColor<char> bg(0, 255, 255);
 	cout << termcolor::blink << c << bg << "--- This is where its at ---" << termcolor::reset << endl;
-	
-	//examples::checker_board::test();
+
+	examples::checker_board::test();
 	//examples::checker_board::printMini();
 	//examples::Character::test();
 	//examples::bars::progressBar();
