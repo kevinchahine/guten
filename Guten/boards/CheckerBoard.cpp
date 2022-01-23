@@ -33,7 +33,9 @@ namespace guten
 		void CheckerBoard::placePiece(char piece, int row, int col, bool isLight)
 		{
 			(*this).at(row, col).character = piece;
-			(*this).at(row, col).color.foreground = (isLight ? lightPiece : darkPiece);
+			
+			(*this).at(row, col).color.foreground = termcolor::ColorFG(1, 2, 3);// = (isLight ? lightPiece : darkPiece);
+
 			// (*this).at(row, col).color.setfgAlpha(0b1111);
 		}
 
@@ -109,13 +111,13 @@ namespace guten
 			size_t totalCols = this->nCols() * cellSize.cols() + 4; 
 
 			Matrix img{ totalRows, totalCols };
-			
+
 			drawBoarder(img);
 
 			drawRibbon(img, cellSize);
 
 			drawCells(img, cellSize);
-			
+
 			return img;
 		}
 
@@ -137,7 +139,11 @@ namespace guten
 
 		void CheckerBoard::print(size_t nTabs, std::ostream & os) const
 		{
-			draw().print(nTabs, os);
+			guten::core::Matrix img = this->draw();
+
+			img.print(nTabs, os);
+
+			// draw().print(nTabs, os);
 		}
 		
 		void CheckerBoard::printMini(size_t nTabs, std::ostream& os) const
@@ -169,6 +175,7 @@ namespace guten
 					const int c = 2 + cellCol * imgCellSize.width + col;
 
 					img.at(TOP_ROW, c).color.background = topColor;
+
 					img.at(BOT_ROW, c).color.background = botColor;
 				}
 

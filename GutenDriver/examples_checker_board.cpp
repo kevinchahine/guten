@@ -2,6 +2,8 @@
 
 #include "../Guten/guten.hpp"
 
+using namespace std;
+
 namespace examples
 {
 	namespace checker_board

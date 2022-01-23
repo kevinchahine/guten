@@ -28,6 +28,8 @@ set (BOARDS
 )
 
 set (COLOR
+	color/Color.h
+	color/Color.cpp
 	color/ColorHelpers.cpp
 	color/ColorHelpers.h
 )
