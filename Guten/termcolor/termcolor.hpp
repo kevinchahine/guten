@@ -1022,7 +1022,7 @@ namespace termcolor
         ~ColorFG() noexcept = default;
         ColorFG & operator=(const ColorFG &) = default;
         ColorFG & operator=(ColorFG &&) noexcept = default;
-        ColorFG & operator=(const Color & color) { static_cast<Color>(*this) = color; return *this; }
+        ColorFG & operator=(const Color & color) { static_cast<Color&>(*this) = color; return *this; }
 
         template<typename CharT>
         friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const ColorFG & color)
@@ -1049,7 +1049,7 @@ namespace termcolor
         ~ColorBG() noexcept = default;
         ColorBG & operator=(const ColorBG &) = default;
         ColorBG & operator=(ColorBG &&) noexcept = default;
-        ColorBG & operator=(const Color & color) { static_cast<Color>(*this) = color; return *this; }
+        ColorBG & operator=(const Color & color) { static_cast<Color&>(*this) = color; return *this; }
 
         template<typename CharT>
         friend std::basic_ostream<CharT>& operator<<(std::basic_ostream<CharT>& stream, const ColorBG & color)

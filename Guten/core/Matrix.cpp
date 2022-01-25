@@ -126,7 +126,7 @@ namespace guten
 				}
 
 				for (size_t col = 0; col < N_COLS; col++) {
-					os << (*this)[row][col];
+					os << (*this)[row][col].color << (*this)[row][col].character;
 				}
 
 				os << termcolor::pop << '\n';

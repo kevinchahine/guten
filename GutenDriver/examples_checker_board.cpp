@@ -10,6 +10,8 @@ namespace examples
 	{
 		void test()
 		{
+			cout << "--- Checker Board ---" << endl;
+
 			guten::boards::CheckerBoard cb;
 
 			cb.placePiece('R', 0, 0, true);
@@ -19,6 +21,7 @@ namespace examples
 
 		void printMini()
 		{
+			cout << "--- Small Checker Board ---" << endl;
 			guten::boards::CheckerBoard cb;
 
 			cb.placePiece('R', 0, 0, true);

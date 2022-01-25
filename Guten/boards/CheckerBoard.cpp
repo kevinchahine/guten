@@ -142,8 +142,6 @@ namespace guten
 			guten::core::Matrix img = this->draw();
 
 			img.print(nTabs, os);
-
-			// draw().print(nTabs, os);
 		}
 		
 		void CheckerBoard::printMini(size_t nTabs, std::ostream& os) const
@@ -168,8 +166,8 @@ namespace guten
 
 			// -- TOP and BOTTOM --
 			for (int cellCol = 0; cellCol < this->nCols(); cellCol++) {
-				termcolor::Color topColor{ (cellCol % 2 ? lightCell : darkCell) };
-				termcolor::Color botColor{ (cellCol % 2 ? darkCell : lightCell) };
+				termcolor::ColorBG topColor{ (cellCol % 2 ? lightCell : darkCell) };
+				termcolor::ColorBG botColor{ (cellCol % 2 ? darkCell : lightCell) };
 
 				for (int col = 0; col < imgCellSize.width; col++) {
 					const int c = 2 + cellCol * imgCellSize.width + col;
