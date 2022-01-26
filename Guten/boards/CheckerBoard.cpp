@@ -34,7 +34,7 @@ namespace guten
 		{
 			(*this).at(row, col).character = piece;
 			
-			(*this).at(row, col).color.foreground = termcolor::ColorFG(1, 2, 3);// = (isLight ? lightPiece : darkPiece);
+			(*this).at(row, col).color.foreground = (isLight ? lightPiece : darkPiece);
 
 			// (*this).at(row, col).color.setfgAlpha(0b1111);
 		}
