@@ -129,6 +129,9 @@ namespace guten
 					os << (*this)[row][col].color << (*this)[row][col].character;
 				}
 
+				termcolor::ColorBG bg(guten::color::black);	// TODO: Remove this
+				os << bg;									// TODO: Remove this
+
 				os << termcolor::pop << '\n';
 			}
 		}
