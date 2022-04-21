@@ -5,6 +5,7 @@
 // Alternative Terminal Libraries
 // FTXUI:			https://github.com/ArthurSonzogni/FTXUI
 // Turbo Vision: 	https://github.com/magiblot/tvision
+
 #include "examples.h"
 #include "examples_checker_board.h"
 #include "examples_draw_functions.h"
@@ -55,8 +56,8 @@ int main()
 	//examples::draw::lines();
 
 	std::cout << termcolor::red << "Hello, ";                   // 16 colors
-	std::cout << termcolor::color<100> << "Colorful ";          // 256 colors
-	std::cout << termcolor::color<211, 54, 130> << "World!";    // true colors
+	std::cout << termcolor::color<100> << termcolor::blue << "Colorful ";          // 256 colors
+	std::cout << termcolor::color<11, 54, 130> << termcolor::yellow << "World!";    // true colors
 	std::cout << std::endl;
 
 	string str = "\u265E";

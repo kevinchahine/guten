@@ -3,7 +3,7 @@
 
 using namespace guten::core;
 
-#pragma error (disable: 2398)
+//#pragma error (disable: 2398)
 
 namespace guten
 {

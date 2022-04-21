@@ -4,17 +4,19 @@
 // that uses this DLL. This way any other project whose source files include this file see
 // GUTEN_API functions as being imported from a DLL, whereas this DLL sees symbols
 // defined with this macro as being exported.
-#ifdef __linux__
-	#define GUTEN_API 
-#elif _WIN32
-	#ifdef GUTEN_EXPORTS
-	#define GUTEN_API __declspec(dllexport)
-	#else
-	#define GUTEN_API __declspec(dllimport)
-	#endif
-#else
-	#define GUTEN_API 
-#endif
+//#ifdef __linux__
+//	#define GUTEN_API 
+//#elif _WIN32
+//	#ifdef GUTEN_EXPORTS
+//	#define GUTEN_API __declspec(dllexport)
+//	#else
+//	#define GUTEN_API __declspec(dllimport)
+//	#endif
+//#else
+//	#define GUTEN_API 
+//#endif
+
+#define GUTEN_API
 
 #pragma warning(disable: 4251)
 

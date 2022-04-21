@@ -3,6 +3,19 @@ cmake_minimum_required(VERSION 3.20)
 set(LIBRARY_NAME "Guten")
 project (${LIBRARY_NAME})
 
+# --- Set Preprocessor Macros ---
+add_compile_definitions(GUTEN_EXPORTS)	# same as '#define GUTEN_EXPORTS'
+
+set (LIB_FILES
+	dllmain.cpp
+	framework.h
+	guten.hpp
+	GutenExports.h
+	GutenExports.cpp
+	pch.h
+	pch.cpp
+)
+
 # --- Get name of each source file ---
 
 set (BARS
@@ -110,13 +123,13 @@ set (OTHER_FILES
 
 # --- 3rd Party Libraries ---
 
-find_package(Boost REQUIRED COMPONENTS
+#find_package(Boost REQUIRED COMPONENTS
 	#variant
-)
+#)
 
-message(STATUS "--- Boost ---")
-message(STATUS "Include dirs ${Boost_INCLUDE_DIRS}")
-message(STATUS "Boost libraries ${Boost_LIBRARIES}")
+#message(STATUS "--- Boost ---")
+#message(STATUS "Include dirs ${Boost_INCLUDE_DIRS}")
+#message(STATUS "Boost libraries ${Boost_LIBRARIES}")
 
 #target_link_libraries(${LIBRARY_NAME} PUBLIC
 #	#Boost::variant
@@ -129,6 +142,7 @@ message(STATUS "Boost libraries ${Boost_LIBRARIES}")
 # --- Combine Source files into a library ---
 
 add_library(${LIBRARY_NAME} STATIC 
+	${LIB_FILES}
 	${BARS}
 	${BLOCKS}
 	${BOARDERS}

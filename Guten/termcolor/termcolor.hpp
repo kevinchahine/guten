@@ -999,6 +999,9 @@ namespace termcolor
             #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
                 stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
             #elif defined(TERMCOLOR_USE_WINDOWS_API)
+                stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
+            #else
+                stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
             #endif
             }
             return stream;
@@ -1032,6 +1035,9 @@ namespace termcolor
             #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
                 stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
             #elif defined(TERMCOLOR_USE_WINDOWS_API)
+                stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
+            #else
+                stream << "\033[38;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
             #endif
             }
             return stream;
@@ -1059,6 +1065,9 @@ namespace termcolor
             #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
                 stream << "\033[48;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
             #elif defined(TERMCOLOR_USE_WINDOWS_API)
+                stream << "\033[48;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
+            #else
+                stream << "\033[48;2;" << +color.red << ";" << +color.green << ";" << +color.blue << "m";
             #endif
             }
             return stream;
@@ -1109,6 +1118,9 @@ namespace termcolor
             #if defined(TERMCOLOR_USE_ANSI_ESCAPE_SEQUENCES)
                 stream << color.foreground << color.background;
             #elif defined(TERMCOLOR_USE_WINDOWS_API)
+                stream << color.foreground << color.background;
+            #else
+                stream << color.foreground << color.background;
             #endif
             }
             return stream;
