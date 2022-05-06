@@ -31,8 +31,9 @@ namespace guten
 			const int COLS_TO_SHOW = std::min(m_mats.size(), (size_t) m_gridCols);
 
 			Matrix mat{ 
-				static_cast<size_t>(ROWS_TO_SHOW * (sizeOf1st.rows() + 1)), 
-				static_cast<size_t>(COLS_TO_SHOW * (sizeOf1st.cols() + 1)) };
+				ROWS_TO_SHOW * (sizeOf1st.rows() + 1), 
+				COLS_TO_SHOW * (sizeOf1st.cols() + 1) 
+			};
 
 			for (int i = 0; i < m_mats.size(); i++) {
 				int gridRow = i / m_gridCols;

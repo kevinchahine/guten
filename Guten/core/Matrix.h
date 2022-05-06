@@ -22,15 +22,15 @@ namespace guten
 
 		public:
 			Matrix();
-			Matrix(size_t row, size_t col);
+			Matrix(int row, int col);
 			Matrix(const Matrix & m);
 			Matrix(Matrix && m) noexcept;
 			~Matrix() noexcept;
 			Matrix & operator=(const Matrix & m);
 			Matrix & operator=(Matrix && m) noexcept;
 
-			colored_char_t & at(size_t row, size_t col);
-			const colored_char_t & at(size_t row, size_t col) const;
+			colored_char_t & at(int row, int col);
+			const colored_char_t & at(int row, int col) const;
 
 			colored_char_t & at(Point point) { return at(point.row, point.col); }
 			const colored_char_t & at(Point point) const { return at(point.row, point.col); }

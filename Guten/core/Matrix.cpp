@@ -22,14 +22,14 @@ namespace guten
 		{
 		public:
 			Impl() = default;
-			Impl(size_t nRows, size_t nCols) { resize(nRows, nCols); }
+			Impl(int nRows, int nCols) { resize(nRows, nCols); }
 			Impl(const Impl &) = default;
 			Impl(Impl &&) noexcept = default;
 			~Impl() noexcept = default;
 			Impl & operator=(const Impl &) = default;
 			Impl & operator=(Impl &&) noexcept = default;
 
-			colored_char_t & at(size_t row, size_t col) 
+			colored_char_t & at(int row, int col)
 			{ 
 #ifdef _DEBUG
 				if (row > nRows()) {
@@ -45,7 +45,7 @@ namespace guten
 				return (*this)[row][col]; 
 			}
 
-			const colored_char_t & at(size_t row, size_t col) const 
+			const colored_char_t & at(int row, int col) const
 			{ 
 #ifdef _DEBUG
 				if (row > nRows()) {
@@ -61,7 +61,7 @@ namespace guten
 				return (*this)[row][col];
 			}
 
-			inline void resize(size_t nRows, size_t nCols) {
+			inline void resize(int nRows, int nCols) {
 				multi_array_t::extent_gen extents;
 				this->multi_array_t::resize(extents[nRows][nCols]);
 			}
@@ -143,7 +143,7 @@ namespace guten
 		{
 		}
 
-		Matrix::Matrix(size_t row, size_t col) :
+		Matrix::Matrix(int row, int col) :
 			pImpl(make_unique<Impl>(row, col))
 		{
 		}
@@ -170,12 +170,12 @@ namespace guten
 			return *this;
 		}
 
-		colored_char_t & Matrix::at(size_t row, size_t col)
+		colored_char_t & Matrix::at(int row, int col)
 		{
 			return pImpl->at(row, col);
 		}
 
-		const colored_char_t & Matrix::at(size_t row, size_t col) const
+		const colored_char_t & Matrix::at(int row, int col) const
 		{
 			return pImpl->at(row, col);
 		}

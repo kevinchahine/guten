@@ -107,8 +107,8 @@ namespace guten
 
 		Matrix CheckerBoard::draw() const
 		{
-			size_t totalRows = this->nRows() * cellSize.rows() + 4;
-			size_t totalCols = this->nCols() * cellSize.cols() + 4; 
+			int totalRows = this->nRows() * cellSize.rows() + 4;
+			int totalCols = this->nCols() * cellSize.cols() + 4; 
 
 			Matrix img{ totalRows, totalCols };
 
@@ -123,8 +123,8 @@ namespace guten
 
 		core::Matrix CheckerBoard::drawMini() const
 		{
-			size_t totalRows = this->nRows() + 4;
-			size_t totalCols = this->nCols() + 4;
+			int totalRows = this->nRows() + 4;
+			int totalCols = this->nCols() + 4;
 
 			Matrix img{ totalRows, totalCols };
 
