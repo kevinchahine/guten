@@ -18,6 +18,12 @@ namespace guten
 		{
 			setCellSize(cellSize);
 			clearHighlights();
+
+			for (int r = 0; r < this->nRows(); r++) {
+				for (int c = 0; c < this->nCols(); c++) {
+					this->at(r, c).color.background = (r % 2 == c % 2 ? lightCell : darkCell);
+				}
+			}
 		}
 
 		void CheckerBoard::setCellSize(const Size & cellSize)
@@ -223,17 +229,18 @@ namespace guten
 					};
 
 					// --- Draw Background Color ---
-					termcolor::Color base = (cellRow % 2 == cellCol % 2 ? lightCell : darkCell);
-					termcolor::Color highlight = this->at(cellRow, cellCol).color.background;
-					termcolor::Color color = base + highlight;
-					
+					//termcolor::Color /*base*/ color = (cellRow % 2 == cellCol % 2 ? lightCell : darkCell);
+					//termcolor::Color highlight = this->at(cellRow, cellCol).color.background;
+					//termcolor::Color color = base + highlight;
+					termcolor::ColorBG bgColor = this->at(cellRow, cellCol).color.background;
+
 					for (int row = 0; row < imgCellSize.height; row++) {
 						for (int col = 0; col < imgCellSize.width; col++) {
 
 							const int r = origin.row + row;
 							const int c = origin.col + col;
 
-							img.at(r, c).color.background = color;
+							img.at(r, c).color.background = bgColor;
 						}
 					}
 

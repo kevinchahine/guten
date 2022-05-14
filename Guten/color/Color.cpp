@@ -16,6 +16,7 @@ namespace guten
 		GUTEN_API const termcolor::Color red(127, 0, 0);
 		GUTEN_API const termcolor::Color magenta(127, 0, 127);
 		GUTEN_API const termcolor::Color yellow(255, 255, 0);
+		GUTEN_API const termcolor::Color darkyellow(128, 128, 0);
 		GUTEN_API const termcolor::Color lightblue(0, 0, 255);
 		GUTEN_API const termcolor::Color lightgreen(0, 255, 0);
 		GUTEN_API const termcolor::Color lightcyan(0, 255, 255);

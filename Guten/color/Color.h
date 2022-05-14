@@ -20,6 +20,7 @@ namespace guten
 		extern GUTEN_API const termcolor::Color red;
 		extern GUTEN_API const termcolor::Color magenta;
 		extern GUTEN_API const termcolor::Color yellow;
+		extern GUTEN_API const termcolor::Color darkyellow;
 		extern GUTEN_API const termcolor::Color lightgray;
 		extern GUTEN_API const termcolor::Color gray;
 		extern GUTEN_API const termcolor::Color lightblue;
