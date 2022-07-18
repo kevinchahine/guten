@@ -1,48 +1,139 @@
 cmake_minimum_required(VERSION 3.20)
 
-# --- Set project name to GutenDriver ---
-set(PROJECT_NAME "GutenDriver")
-project(${PROJECT_NAME})
+set(LIBRARY_NAME "guten")
+project (${LIBRARY_NAME})
 
-add_subdirectory(Guten)
+# --- Set Preprocessor Macros ---
+add_compile_definitions(GUTEN_EXPORTS)	# same as '#define GUTEN_EXPORTS'
 
-# --- Specify Header Files ---
-set(SOURCE_FILES
-	${PROJECT_NAME}/Source.cpp
-	${PROJECT_NAME}/examples_boarders.cpp
-	${PROJECT_NAME}/examples_boarders.h
-	${PROJECT_NAME}/examples_checker_board.cpp
-	${PROJECT_NAME}/examples_checker_board.h
-	${PROJECT_NAME}/examples.cpp
-	${PROJECT_NAME}/examples_draw_functions.cpp
-	${PROJECT_NAME}/examples_draw_functions.h
-	${PROJECT_NAME}/examples_glyphs.cpp
-	${PROJECT_NAME}/examples_glyphs.h
-	${PROJECT_NAME}/examples.h
-	${PROJECT_NAME}/examples_progress_bar.cpp
-	${PROJECT_NAME}/examples_progress_bar.h
+set (LIB_FILES
+	dllmain.cpp
+	framework.h
+	guten.hpp
+	GutenExports.h
+	GutenExports.cpp
+	pch.h
+	pch.cpp
 )
 
-set(TEXT_FILES
-	${PROJECT_NAME}/DrawFunctions.txt
-	${PROJECT_NAME}/Letters.txt
-	${PROJECT_NAME}/Matrix.txt
-	${PROJECT_NAME}/ProgressBars.txt
-	${PROJECT_NAME}/termcolor.txt
+# --- Get name of each source file ---
+
+set (BARS
+	bars/BlockBar.cpp
+	bars/BlockBar.h
+	bars/ProgressBar.cpp
+	bars/ProgressBar.h
 )
 
-# --- Establish the executable and specify which files will be used to create it ---
-add_executable(${PROJECT_NAME}
-	${SOURCE_FILES}
-	${TEXT_FILES}
-)	
-
-# --- Link Libraries ---
-target_link_libraries(${PROJECT_NAME} PUBLIC
-	Guten
+set (BLOCKS
+	blocks/BlockChar.cpp
+	blocks/BlockChar.h
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC
-	../Guten/
+set (BOARDERS
+	boarders/Boarder.cpp
+	boarders/Boarder.h
 )
 
+set (BOARDS
+	boards/CheckerBoard.cpp
+	boards/CheckerBoard.h
+)
+
+set (COLOR
+	color/Color.h
+	color/Color.cpp
+	color/ColorHelpers.cpp
+	color/ColorHelpers.h
+)
+
+set (CORE
+	core/Character.cpp
+	core/Character.h
+	core/ColoredChar.cpp
+	core/ColoredChar.h
+	core/helpers.cpp
+	core/helpers.h
+	core/Matrix.cpp
+	core/Matrix.h
+	core/Point.cpp
+	core/Point.h
+	core/Size.cpp
+	core/Size.h
+)
+
+set (DRAW 
+	draw/DrawFunctions.cpp
+	draw/DrawFunctions.h
+)
+
+set (GLYPHS
+	glyphs/Glyphs.cpp
+	glyphs/Glyphs.h
+	glyphs/Letter.cpp
+	glyphs/Letter.h
+)
+
+set (LINES
+	lines/LineChar.cpp
+	lines/LineChar.h
+)
+
+set (SPINNERS
+	spinners/FlatSpinner.cpp
+	spinners/FlatSpinner.h
+	spinners/LineSpinner.cpp
+	spinners/LineSpinner.h
+	spinners/SpinnerBase.cpp
+	spinners/SpinnerBase.h
+	spinners/spinners.hpp
+)
+
+set (VIEW
+	view/AlignedView.cpp
+	view/AlignedView.h
+	view/ConstrainedLayout.cpp
+	view/ConstrainedLayout.h
+	view/GridView.cpp
+	view/GridView.h
+	view/HorizontalView.cpp
+	view/HorizontalView.h
+	view/LinearLayout.cpp
+	view/LinearLayout.h
+	view/RelativeLayout.cpp
+	view/RelativeLayout.h
+	view/TextView.cpp
+	view/TextView.h
+	view/VerticalView.cpp
+	view/VerticalView.h
+	view/View.cpp
+	view/ViewGroup.cpp
+	view/ViewGroup.h
+	view/View.h
+)
+
+set (OTHER_FILES
+	framework.h
+	guten.hpp
+	GutenExports.cpp
+	GutenExports.h
+	pch.cpp
+	pch.h
+)
+
+# --- Combine Source files into a library ---
+
+add_library(${LIBRARY_NAME} STATIC 
+	${LIB_FILES}
+	${BARS}
+	${BLOCKS}
+	${BOARDERS}
+	${BOARDS}
+	${COLOR}
+	${CORE}
+	${DRAW}
+	${GLYPHS}
+	${LINES}
+	${SPINNERS}
+	${VIEW}
+)

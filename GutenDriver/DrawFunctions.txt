@@ -1,4 +1,0 @@
-=== Guten ===
-=== Draw Functions ===
-
-Draw waves of color
