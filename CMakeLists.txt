@@ -1,3 +1,5 @@
+# --- Guten Library Project ---
+
 cmake_minimum_required(VERSION 3.20)
 
 set(LIBRARY_NAME "guten")
@@ -7,119 +9,132 @@ project (${LIBRARY_NAME})
 add_compile_definitions(GUTEN_EXPORTS)	# same as '#define GUTEN_EXPORTS'
 
 set (LIB_FILES
-	dllmain.cpp
-	framework.h
-	guten.hpp
-	GutenExports.h
-	GutenExports.cpp
-	pch.h
-	pch.cpp
+	guten/dllmain.cpp
+	guten/framework.h
+	guten/guten.hpp
+	guten/GutenExports.h
+	guten/GutenExports.cpp
+	guten/pch.h
+	guten/pch.cpp
 )
 
 # --- Get name of each source file ---
 
 set (BARS
-	bars/BlockBar.cpp
-	bars/BlockBar.h
-	bars/ProgressBar.cpp
-	bars/ProgressBar.h
+	guten/bars/BlockBar.cpp
+	guten/bars/BlockBar.h
+	guten/bars/ProgressBar.cpp
+	guten/bars/ProgressBar.h
 )
 
 set (BLOCKS
-	blocks/BlockChar.cpp
-	blocks/BlockChar.h
+	guten/blocks/BlockChar.cpp
+	guten/blocks/BlockChar.h
 )
 
 set (BOARDERS
-	boarders/Boarder.cpp
-	boarders/Boarder.h
+	guten/boarders/Boarder.cpp
+	guten/boarders/Boarder.h
 )
 
 set (BOARDS
-	boards/CheckerBoard.cpp
-	boards/CheckerBoard.h
+	guten/boards/CheckerBoard.cpp
+	guten/boards/CheckerBoard.h
 )
 
 set (COLOR
-	color/Color.h
-	color/Color.cpp
-	color/ColorHelpers.cpp
-	color/ColorHelpers.h
+	guten/color/Color.h
+	guten/color/Color.cpp
+	guten/color/ColorHelpers.cpp
+	guten/color/ColorHelpers.h
 )
 
 set (CORE
-	core/Character.cpp
-	core/Character.h
-	core/ColoredChar.cpp
-	core/ColoredChar.h
-	core/helpers.cpp
-	core/helpers.h
-	core/Matrix.cpp
-	core/Matrix.h
-	core/Point.cpp
-	core/Point.h
-	core/Size.cpp
-	core/Size.h
+	guten/core/Character.cpp
+	guten/core/Character.h
+	guten/core/ColoredChar.cpp
+	guten/core/ColoredChar.h
+	guten/core/helpers.cpp
+	guten/core/helpers.h
+	guten/core/Matrix.cpp
+	guten/core/Matrix.h
+	guten/core/Point.cpp
+	guten/core/Point.h
+	guten/core/Size.cpp
+	guten/core/Size.h
 )
 
 set (DRAW 
-	draw/DrawFunctions.cpp
-	draw/DrawFunctions.h
+	guten/draw/DrawFunctions.cpp
+	guten/draw/DrawFunctions.h
 )
 
 set (GLYPHS
-	glyphs/Glyphs.cpp
-	glyphs/Glyphs.h
-	glyphs/Letter.cpp
-	glyphs/Letter.h
+	guten/glyphs/Glyphs.cpp
+	guten/glyphs/Glyphs.h
+	guten/glyphs/Letter.cpp
+	guten/glyphs/Letter.h
 )
 
 set (LINES
-	lines/LineChar.cpp
-	lines/LineChar.h
+	guten/lines/LineChar.cpp
+	guten/lines/LineChar.h
 )
 
 set (SPINNERS
-	spinners/FlatSpinner.cpp
-	spinners/FlatSpinner.h
-	spinners/LineSpinner.cpp
-	spinners/LineSpinner.h
-	spinners/SpinnerBase.cpp
-	spinners/SpinnerBase.h
-	spinners/spinners.hpp
+	guten/spinners/FlatSpinner.cpp
+	guten/spinners/FlatSpinner.h
+	guten/spinners/LineSpinner.cpp
+	guten/spinners/LineSpinner.h
+	guten/spinners/SpinnerBase.cpp
+	guten/spinners/SpinnerBase.h
+	guten/spinners/spinners.hpp
 )
 
 set (VIEW
-	view/AlignedView.cpp
-	view/AlignedView.h
-	view/ConstrainedLayout.cpp
-	view/ConstrainedLayout.h
-	view/GridView.cpp
-	view/GridView.h
-	view/HorizontalView.cpp
-	view/HorizontalView.h
-	view/LinearLayout.cpp
-	view/LinearLayout.h
-	view/RelativeLayout.cpp
-	view/RelativeLayout.h
-	view/TextView.cpp
-	view/TextView.h
-	view/VerticalView.cpp
-	view/VerticalView.h
-	view/View.cpp
-	view/ViewGroup.cpp
-	view/ViewGroup.h
-	view/View.h
+	guten/view/AlignedView.cpp
+	guten/view/AlignedView.h
+	guten/view/ConstrainedLayout.cpp
+	guten/view/ConstrainedLayout.h
+	guten/view/GridView.cpp
+	guten/view/GridView.h
+	guten/view/HorizontalView.cpp
+	guten/view/HorizontalView.h
+	guten/view/LinearLayout.cpp
+	guten/view/LinearLayout.h
+	guten/view/RelativeLayout.cpp
+	guten/view/RelativeLayout.h
+	guten/view/TextView.cpp
+	guten/view/TextView.h
+	guten/view/VerticalView.cpp
+	guten/view/VerticalView.h
+	guten/view/View.cpp
+	guten/view/ViewGroup.cpp
+	guten/view/ViewGroup.h
+	guten/view/View.h
 )
 
 set (OTHER_FILES
-	framework.h
-	guten.hpp
-	GutenExports.cpp
-	GutenExports.h
-	pch.cpp
-	pch.h
+	guten/framework.h
+	guten/guten.hpp
+	guten/GutenExports.cpp
+	guten/GutenExports.h
+	guten/pch.cpp
+	guten/pch.h
 )
+
+source_group(${LIBRARY_NAME} FILES ${LIB_FILES})
+source_group(${LIBRARY_NAME} FILES ${BARS})
+source_group(${LIBRARY_NAME} FILES ${BLOCKS})
+source_group(${LIBRARY_NAME} FILES ${BOARDERS})
+source_group(${LIBRARY_NAME} FILES ${BOARDS})
+source_group(${LIBRARY_NAME} FILES ${COLOR})
+source_group(${LIBRARY_NAME} FILES ${CORE})
+source_group(${LIBRARY_NAME} FILES ${DRAW})
+source_group(${LIBRARY_NAME} FILES ${GLYPHS})
+source_group(${LIBRARY_NAME} FILES ${LINES})
+source_group(${LIBRARY_NAME} FILES ${SPINNERS})
+source_group(${LIBRARY_NAME} FILES ${VIEW})
 
 # --- Combine Source files into a library ---
 
@@ -137,3 +152,5 @@ add_library(${LIBRARY_NAME} STATIC
 	${SPINNERS}
 	${VIEW}
 )
+
+target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
