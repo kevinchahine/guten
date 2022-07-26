@@ -8,6 +8,8 @@ project (${LIBRARY_NAME})
 # --- Set Preprocessor Macros ---
 add_compile_definitions(GUTEN_EXPORTS)	# same as '#define GUTEN_EXPORTS'
 
+# --- Get name of each source file ---
+
 set (LIB_FILES
 	guten/dllmain.cpp
 	guten/framework.h
@@ -17,8 +19,6 @@ set (LIB_FILES
 	guten/pch.h
 	guten/pch.cpp
 )
-
-# --- Get name of each source file ---
 
 set (BARS
 	guten/bars/BlockBar.cpp
@@ -123,19 +123,6 @@ set (OTHER_FILES
 	guten/pch.h
 )
 
-source_group(${LIBRARY_NAME} FILES ${LIB_FILES})
-source_group(${LIBRARY_NAME} FILES ${BARS})
-source_group(${LIBRARY_NAME} FILES ${BLOCKS})
-source_group(${LIBRARY_NAME} FILES ${BOARDERS})
-source_group(${LIBRARY_NAME} FILES ${BOARDS})
-source_group(${LIBRARY_NAME} FILES ${COLOR})
-source_group(${LIBRARY_NAME} FILES ${CORE})
-source_group(${LIBRARY_NAME} FILES ${DRAW})
-source_group(${LIBRARY_NAME} FILES ${GLYPHS})
-source_group(${LIBRARY_NAME} FILES ${LINES})
-source_group(${LIBRARY_NAME} FILES ${SPINNERS})
-source_group(${LIBRARY_NAME} FILES ${VIEW})
-
 # --- Combine Source files into a library ---
 
 add_library(${LIBRARY_NAME} STATIC 
@@ -152,5 +139,18 @@ add_library(${LIBRARY_NAME} STATIC
 	${SPINNERS}
 	${VIEW}
 )
+
+source_group(${LIBRARY_NAME} FILES ${LIB_FILES})
+source_group(${LIBRARY_NAME} FILES ${BARS})
+source_group(${LIBRARY_NAME} FILES ${BLOCKS})
+source_group(${LIBRARY_NAME} FILES ${BOARDERS})
+source_group(${LIBRARY_NAME} FILES ${BOARDS})
+source_group(${LIBRARY_NAME} FILES ${COLOR})
+source_group(${LIBRARY_NAME} FILES ${CORE})
+source_group(${LIBRARY_NAME} FILES ${DRAW})
+source_group(${LIBRARY_NAME} FILES ${GLYPHS})
+source_group(${LIBRARY_NAME} FILES ${LINES})
+source_group(${LIBRARY_NAME} FILES ${SPINNERS})
+source_group(${LIBRARY_NAME} FILES ${VIEW})
 
 target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
