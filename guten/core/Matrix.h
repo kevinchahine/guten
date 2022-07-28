@@ -5,6 +5,7 @@
 #include "../core/ColoredChar.h"
 #include "../core/Character.h"
 #include "../core/Point.h"
+#include "../core/Size.h"
 
 #include <iostream>
 #include <iomanip>
@@ -23,6 +24,7 @@ namespace guten
 		public:
 			Matrix();
 			Matrix(int row, int col);
+			Matrix(const Size& size);
 			Matrix(const Matrix & m);
 			Matrix(Matrix && m) noexcept;
 			~Matrix() noexcept;
@@ -40,6 +42,7 @@ namespace guten
 
 			void print(size_t nTabs = 0, std::ostream & os = std::cout) const;
 
+			Point origin() const { return guten::Point{ 0, 0 }; }
 			int nRows() const;
 			int nCols() const;
 			Size size() const;

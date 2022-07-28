@@ -94,11 +94,11 @@ namespace guten
 			rectangle(mat, p1, size, color, false);
 		}
 
-		void putText(core::Matrix & mat, const std::string & text, const Point & origin, const termcolor::Color & color)
+		GUTEN_API void putText(core::Matrix& mat, const std::string& text, const Point& origin, const termcolor::ColorFBG& color)
 		{
 			for (int i = 0; i < text.size(); i++) {
-				auto & elem = mat.at(origin.row, origin.col + i);
-				
+				auto& elem = mat.at(origin.row, origin.col + i);
+
 				elem.character = text[i];
 				elem.color = color;
 			}

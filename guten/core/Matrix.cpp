@@ -144,10 +144,11 @@ namespace guten
 		}
 
 		Matrix::Matrix(int row, int col) :
-			pImpl(make_unique<Impl>(row, col))
-		{
-		}
-
+			pImpl(make_unique<Impl>(row, col)) {}
+		
+		Matrix::Matrix(const Size& size) :
+			pImpl(make_unique<Impl>(size.rows(), size.cols())) {}
+		
 		Matrix::Matrix(const Matrix & m) :
 			pImpl(make_unique<Impl>(*m.pImpl)) {}
 

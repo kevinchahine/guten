@@ -35,7 +35,7 @@ namespace guten
 		template<>
 		GUTEN_API void rectangle<lines::LineChar>(core::Matrix& mat, const Point& origin, const Size& size, const lines::LineChar& character, const termcolor::Color& color);
 
-		GUTEN_API void putText(core::Matrix& mat, const std::string& text, const Point& origin, const termcolor::Color& color = color::white);
+		GUTEN_API void putText(core::Matrix& mat, const std::string& text, const Point& origin, const termcolor::ColorFBG& color = color::white);
 
 		template<typename CHAR_T>
 		void horizontalLine(core::Matrix& mat, const Point& p1, size_t width, const CHAR_T& character, const termcolor::Color& color)
