@@ -91,6 +91,10 @@ set (SPINNERS
 	guten/spinners/spinners.hpp
 )
 
+set (TERMCOLOR
+	guten/termcolor/termcolor.hpp
+)
+
 set (VIEW
 	guten/view/AlignedView.cpp
 	guten/view/AlignedView.h
@@ -137,20 +141,22 @@ add_library(${LIBRARY_NAME} STATIC
 	${GLYPHS}
 	${LINES}
 	${SPINNERS}
+	${TERMCOLOR}
 	${VIEW}
 )
 
-source_group(${LIBRARY_NAME} FILES ${LIB_FILES})
-source_group(${LIBRARY_NAME} FILES ${BARS})
-source_group(${LIBRARY_NAME} FILES ${BLOCKS})
-source_group(${LIBRARY_NAME} FILES ${BOARDERS})
-source_group(${LIBRARY_NAME} FILES ${BOARDS})
-source_group(${LIBRARY_NAME} FILES ${COLOR})
-source_group(${LIBRARY_NAME} FILES ${CORE})
-source_group(${LIBRARY_NAME} FILES ${DRAW})
-source_group(${LIBRARY_NAME} FILES ${GLYPHS})
-source_group(${LIBRARY_NAME} FILES ${LINES})
-source_group(${LIBRARY_NAME} FILES ${SPINNERS})
-source_group(${LIBRARY_NAME} FILES ${VIEW})
+source_group(source FILES ${LIB_FILES})
+source_group(bars FILES ${BARS})
+source_group(blocks FILES ${BLOCKS})
+source_group(boarders FILES ${BOARDERS})
+source_group(boards FILES ${BOARDS})
+source_group(color FILES ${COLOR})
+source_group(core FILES ${CORE})
+source_group(draw FILES ${DRAW})
+source_group(glyphs FILES ${GLYPHS})
+source_group(lines FILES ${LINES})
+source_group(spinners FILES ${SPINNERS})
+source_group(termcolor FILES ${TERMCOLOR})
+source_group(view FILES ${VIEW})
 
 target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
