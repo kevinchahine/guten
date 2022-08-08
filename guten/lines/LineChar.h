@@ -124,6 +124,7 @@ namespace guten
 			//	cout << m_value;					// No - does not print horizontal line
 			//	cout << guten::LINES[m_value];		// Yes - prints horizontal line char
 			// 
+			// Bits:
 			// 0 (LSB)	RIGHT
 			// 1		LEFT
 			// 2		DOWN
