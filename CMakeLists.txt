@@ -160,3 +160,7 @@ source_group(termcolor FILES ${TERMCOLOR})
 source_group(view FILES ${VIEW})
 
 target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+if(MSVC)
+	target_compile_options(${PROJECT_NAME} PRIVATE "/MP")	# parallel compilation
+endif()
